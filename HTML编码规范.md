@@ -326,6 +326,6 @@
 ---
 *本规范文档将不断修改更新，请各位批评指正*
 
-[HTML-image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML-image1.png
-[HTML-image2]:
-[HTML-image3]:
+[HTML-image1]:Code-Conventions/images/HTML_image1.png
+[HTML-image2]:Code-Conventions/images/HTML_image2.png
+[HTML-image3]:Code-Conventions/images/HTML_image3.png
