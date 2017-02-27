@@ -76,29 +76,21 @@
 
   命名方法通常有以下几类
   1. camel命名法，形如
-
-```javascript 
-var thisIsAnApple = '';  
-```  
-
+```javascript
+var thisIsAnApple = '';
+```
   2. pascal命名法，形如
-
-```javascript 
-var ThisIsAnApple = '';  
-```  
-
+```javascript
+var ThisIsAnApple = '';
+```
   3. 下划线命名法，形如
-
-```javascript 
-var this_is_an_apple = '';  
-```  
-
+```javascript
+var this_is_an_apple = '';
+```
   4. 中划线命名法，形如
-
-```javascript 
-var this-is-an-apple = '';  
-```  
-
+```javascript
+var this-is-an-apple = '';
+```
 #### 2.1.2 命名规则<h4 id="2.1.2"></h4>
 
   根据不同类型的内容，必须严格采用如下的命名法
@@ -187,84 +179,68 @@ var this-is-an-apple = '';
 
   语句标示是可选的，只有以下语句必须被标示：while、do、for、switch
   1. return语句
-  [强制]一条有返回值的return语句不要使用括号来括住返回值，如果返回表达式，则表达式应与return关键字在一行
+    [强制]一条有返回值的return语句不要使用括号来括住返回值，如果返回表达式，则表达式应与return关键字在一行
   2. if语句：应如以下格式
-
-```javascript 
-if (condition) {  
-  statements;  
-} else if (condition) {  
-  statements;  
-} else {  
-  statements;  
-}  
-```  
-
+```javascript
+if (condition) {
+  statements;
+} else if (condition) {
+  statements;
+} else {
+  statements;
+}
+```
   3. for语句：应如以下格式
-
-```javascript  
-for (initialization; condition; update) {  
-  statements;  
-}  
-```  
-
-  for循环语句使用技巧，例如如下所示的for循环语句  
-
-```javascript  
-for (i = 0; i < myArray.length; i++) {  
-  statements;  
-}  
-```  
-
-  [建议]每次判断i是否达到临界值时都要获取一遍myArray的length属性，这样做影响效率，可以用以下的形式
-
-```javascript  
-for (i = 0, max = myArray.length; i < max; i++) {  
-  statements;  
-}  
-```  
-
+```javascript
+for (initialization; condition; update) {
+  statements;
+}
+```
+    for循环语句使用技巧，例如如下所示的for循环语句  
+```javascript
+for (i = 0; i < myArray.length; i++) {
+  statements;
+}
+```
+    [建议]每次判断i是否达到临界值时都要获取一遍myArray的length属性，这样做影响效率，可以用以下的形式
+```javascript
+for (i = 0, max = myArray.length; i < max; i++) {
+  statements;
+}
+```
   4. while语句：应如以下格式
-
-```javascript  
-while (condition) {  
-  statements;  
-}  
-```  
-
+```javascript
+while (condition) {
+  statements;
+}
+```
   5. do语句：应如以下格式
-  [强制]不像别的复合语句，do语句总是以分号（;）结尾
-
-```javascript  
-do {  
-  statements;  
-} while (condition);  
-```  
-
+    [强制]不像别的复合语句，do语句总是以分号（;）结尾
+```javascript
+do {
+  statements;
+} while (condition);
+```
   6. switch语句：应如以下格式
-  [强制]每个case相互对齐，每一组statements（除了default）都应以break、return或者throw结尾，不要让它顺次往下执行
-
-```javascript  
-switch (expression) {  
-  case expression:  
-    statements;  
-  default:  
-    statements;  
-}  
-```  
-
+    [强制]每个case相互对齐，每一组statements（除了default）都应以break、return或者throw结尾，不要让它顺次往下执行
+```javascript
+switch (expression) {
+  case expression:
+    statements;
+  default:
+    statements;
+}
+```
   7. try语句：应如以下格式
-
-```javascript  
-try {  
-  statements;  
-} catch (variable) {  
-  statements;  
-} finally {  
-  statements;  
-}  
-```  
-
+```javascript
+try {
+  statements;
+} catch (variable) {
+  statements;
+} finally {
+  statements;
+}
+```
   8. with语句：可以用来引用某个特定对象中已有的属性，但不能用来给对象添加属性，要给对象创建新的属性，必须明确地引用该对象
     [强制]在编写代码中尽量不要使用with语句  
   9. 空白，用空行来将逻辑相关的代码块分割开可以提高程序的可读性。空格应在以下情况时使用
@@ -298,26 +274,23 @@ try {
 
   1. 函数命名
     * 函数名与左括号之间不应该有空格，在右括号与开始程序体的左大括号之间应插入一个空格，函数程序体应缩进4个空格或1个TAB符，例如
-
-```javascript  
-function outer(c, d) {  
-  var e = c * d;  
-  function inner(a, b) {  
-    return (e * a) + b;  
-  }  
-  return inner(0, 1);  
-}  
-```  
-
+```javascript
+function outer(c, d) {
+  var e = c * d;
+  function inner(a, b) {
+    return (e * a) + b;
+  }
+  return inner(0, 1);
+}
+```
     * 函数名的命名规则与变量命名一样，采用驼峰命名规则，首字母需要小写，约定以f开头，例如fGetValue()
     * 统一使用动词或者动词+名词形式，例如：fGetVersion()、fSubmitForm()、fInit()
     * 涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词，例如：fIsObject()、fHasClass()、fContainsElment()
     * 对象方法命名使用f+对象类名+动词+名词形式；例如：fnAddressGetEmail()
     * 某事件响应函数命名方式为f+触发事件对象名+事件名或者模块名，例如：fDivClick()，fAddressSubmitButtonClick()
   2. 函数方法常用的动词
-
-| 方法名              | 注释          | 方法名              | 注释       |
-| ------------------- | ------------- | ------------------- | ---------- |
+| 方法名               | 注释          | 方法名              | 注释       |
+| :----------------:  | :----------: | :-----------------: | :-------: |
 | get/set             | 获取/设置     | add/remove          | 增加/删除  |
 | create/destory      | 创建/移除     | start/stop          | 启动/停止  |
 | open/close          | 打开/关闭     | read/write          | 读取/写入  |
@@ -345,7 +318,6 @@ function outer(c, d) {
 | begin/end           | 起始/结束     | start/finish        | 开始/完成  |
 | enter/exit          | 进入/退出     | abort/quit          | 放弃/离开  |
 | obsolete/depreciate | 废弃/废旧     | collect/aggregate   | 收集/聚集  |
-
   3. 不推荐构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数
   4. 函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义
   5. 一个函数的参数控制在6个以内
@@ -356,37 +328,31 @@ function outer(c, d) {
 
   1. JS文件开头注释
     [建议]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新
-
-```javascript  
-/*  
-*@fileName:文件名  
-*@fileDesc:文件功能描述  
-*@author:创建人  
-*@createTime:创建时间  
-*@modifiedBy:修改人  
-*@modifiedTime:修改时间  
-*@modifiedDesc:修改描述  
-*/  
-```  
-
+```javascript
+/*
+*@fileName:文件名
+*@fileDesc:文件功能描述
+*@author:创建人
+*@createTime:创建时间
+*@modifiedBy:修改人
+*@modifiedTime:修改时间
+*@modifiedDesc:修改描述
+*/
+```
   2. 大功能区注释
     [建议]在大功能区（或难以理解的部分）代码的开头添加注释，对其功能、参数及返回值进行描述*（具体详见JSDOC注释规范）*
-
-```javascript  
-/*  
-*@desc:功能描述  
-*@param:参数描述  
-*@return:返回值  
-*/  
-```  
-
+```javascript
+/*
+*@desc:功能描述
+*@param:参数描述
+*@return:返回值
+*/
+```
   3. 单行注释
     [建议]放在行末尾，对该行代码进行说明，//后面跟一个空格再跟注释内容
-
-```javascript  
-// 注释内容  
-```  
-
+```javascript
+// 注释内容
+```
   4. 特殊标记
     * *（具体详见JSDOC注释规范）*
     * TODO：有功能待实现，此时需要对将要实现的功能进行简单说明
@@ -440,5 +406,5 @@ function outer(c, d) {
   19. 如果针对的是不断运行的代码，不应该使用setTimeout，而应该是用setInterval，因为setTimeout每一次都会初始化一个定时器，而setInterval只会在开始的时候初始化一个定时器
   20. 删除dom节点之前，一定要删除注册在该节点上的事件，否则将会产生无法回收的内存。另外，在removeChild和innerHTML = ''二者之间，尽量选择后者，因为前者无法有效地释放dom节点
   21. 在JavaScript中，我们可以使用for(;;)、while()、for(in)三种循环，事实上，这三种循环中for(in)的效率极差，尽量使用for(;;)循环和while()循环，其中while()循环效率最好
-
+---
 *本规范文档将不断修改更新，请各位批评指正*
