@@ -45,27 +45,28 @@
 [5. 其他注意事项](#5)  
 
 ## 1 概述<h2 id="1"></h2>
-  一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码
-  1. 基本概念  
-  可维护代码需要遵循以下规则：  
-  可理解性：其他人可以接手代码并理解它的意图和一般途径而无须原开发人员的完整解释  
-  直观性：代码中的东西一看就能明白，不管其操作过程多么复杂  
-  可适应性：代码在重复使用时只要求更改传入的参数而不要求修改或重写代码以达到要求  
-  可扩展性：在代码架构上已考虑到未来允许对核心功能进行扩展  
-  可调试性：当有地方出错时，代码可以给予开发人员足够的信息来尽可能直接的确定问题所在，一种让代码变得可维护的简单途径就是形成一套JavaScript代码的书写约定
-  2. 编写目的  
-  为前端开发人员的JavaScript代码编写提供参考依据和统一标准
-  3. 统一编程风格的意义  
-  增加开发过程代码的强壮性、可读性、易维护性  
-  减少有经验和无经验开发人员编程所需的脑力工作  
-  为系统的良好维护打下好的基础  
-  在项目范围内统一代码风格  
-  通过人为以及自动的方式对最终软件应用质量标准  
-  使新的开发人员快速适应项目氛围  
-  支持项目资源的复用，允许开发人员从一个项目区域（或子项目团队）移动到另一个，而不需要重新适应新的子项目团队的氛围  
-  一个优秀而且职业化的开发团队所必需的素质  
-  4. 预期的读者和阅读建议  
-  本文档适用于前端开发人员在进行JavaScript代码编写时进行参考  
+
+一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码  
+**基本概念**  
+  - 可维护代码需要遵循以下规则：  
+  - 可理解性：其他人可以接手代码并理解它的意图和一般途径而无须原开发人员的完整解释  
+  - 直观性：代码中的东西一看就能明白，不管其操作过程多么复杂  
+  - 可适应性：代码在重复使用时只要求更改传入的参数而不要求修改或重写代码以达到要求  
+  - 可扩展性：在代码架构上已考虑到未来允许对核心功能进行扩展  
+  - 可调试性：当有地方出错时，代码可以给予开发人员足够的信息来尽可能直接的确定问题所在，一种让代码变得可维护的简单途径就是形成一套JavaScript代码的书写约定  
+**编写目的**  
+  - 为前端开发人员的JavaScript代码编写提供参考依据和统一标准  
+**统一编程风格的意义**  
+  - 增加开发过程代码的强壮性、可读性、易维护性  
+  - 减少有经验和无经验开发人员编程所需的脑力工作  
+  - 为系统的良好维护打下好的基础  
+  - 在项目范围内统一代码风格  
+  - 通过人为以及自动的方式对最终软件应用质量标准  
+  - 使新的开发人员快速适应项目氛围  
+  - 支持项目资源的复用，允许开发人员从一个项目区域（或子项目团队）移动到另一个，而不需要重新适应新的子项目团队的氛围  
+  - 一个优秀而且职业化的开发团队所必需的素质  
+**预期的读者和阅读建议**  
+  - 本文档适用于前端开发人员在进行JavaScript代码编写时进行参考  
 
 ## 2 总体命名规范<h2 id="2"></h2>
 
@@ -73,36 +74,185 @@
 
 #### 2.1.1 命名方法<h4 id="2.1.1"></h4>
 
-  命名方法通常有以下几类
-  1. camel命名法，形如
+命名方法通常有以下几类
+  1. camel命名法    
+示例：
 ```javascript
 var thisIsAnApple = ''; 
 ```
-  2. pascal命名法，形如
+  2. pascal命名法    
+示例：
 ```javascript
 var ThisIsAnApple = '';
 ```
-  3. 下划线命名法，形如
+  3. 下划线命名法    
+示例：
 ```javascript
 var this_is_an_apple = '';
 ```
-  4. 中划线命名法，形如
+  4. 中划线命名法    
+示例：
 ```javascript
 var this-is-an-apple = '';
 ```
+
 #### 2.1.2 命名规则<h4 id="2.1.2"></h4>
 
-  根据不同类型的内容，必须严格采用如下的命名法
-  1. 变量名，必须采用camel命名法，若变量名称由一个单词组成，必须为小写字母，例如：element、accountElement
-  2. 参数名，必须采用camel命名法
-  3. 函数名，必须采用camel命名法，使用动词或动词短语为其命名，例如：fGetValue()、fSetValue()
-  4. 方法/属性，必须采用camel命名法
-  5. 私有（保护）成员，必须以下划线开头，且必须采用camel命名法，例如：_element、_accountElement、_fSetValue()、_fGetValue()
-  6. 常量名，必须使用全部大写的下划线命名法，例如：IS_DEBUG_ENABLED
-  7. 类名，必须使用pascal命名法，例如Account、EventHandler
-  8. 枚举名，必须使用pascal命名法
-  9. 枚举的属性，必须使用全部大写的下划线命名法
-  10. 命名空间，必须使用camel命名法
+根据不同类型的内容，必须严格采用如下的命名法    
+**[强制]变量名，必须采用camel命名法，若变量名称由一个单词组成，必须为小写字母**    
+反例：  
+```javascript
+var Element = '';
+var accountelement = '';
+var AccountElement = '';
+```
+正例：  
+```javascript
+var element = '';
+var accountElement = '';
+```
+**[强制]函数名，必须采用camel命名法，使用动词或动词短语为其命名**    
+反例：  
+```javascript
+function Value(){
+  // ...
+}
+function elementvalue(){
+  // ...
+}
+function ElementValue(){
+  // ...
+}
+```
+正例：  
+```javascript
+function getValue(){
+  // ...
+}
+function getElementValue(){
+  // ...
+}
+function setElementValue(){
+  // ...
+}
+```
+**[强制]函数参数名，必须采用camel命名法**    
+反例：  
+```javascript
+function funcName(Element){
+  // ...
+}
+function funcName(accountelement){
+  // ...
+}
+function funcName(AccountElement){
+  // ...
+}
+```
+正例：   
+```javascript
+function funcName(element){
+  // ...
+}
+function funcName(accountElement){
+  // ...
+}
+```
+**[强制]类的方法/属性，必须采用camel命名法**    
+示例：    
+```javascript
+// TestClass为一个类
+function TestClass(valueOne, valueTwo){
+  this.testValueOne = valueOne;
+  this.testValueTwo = valueTwo;
+}
+```
+**[强制]私有（保护）成员，必须以下划线开头，且必须采用camel命名法**    
+反例：    
+```javascript
+Element
+_Element
+_accountelement
+_AccountElement
+_SetValue()
+```
+正例：    
+```javascript
+_element
+_accountElement
+_setValue()
+```
+**[强制]常量名，必须使用全部大写的下划线命名法**    
+反例：    
+```javascript
+isDebugEnabled
+ISDEBUGENABLED
+```
+正例：    
+```javascript
+IS_DEBUG_ENABLED
+```
+**[强制]类名，必须使用pascal命名法**    
+反例：    
+```javascript
+function testClass(){
+  // ...
+}
+```
+正例：    
+```javascript
+function TestClass(){
+  // ...
+}
+```
+**[强制]枚举名，必须使用pascal命名法**    
+反例：    
+```javascript
+var targetstate = {
+    READING: 1,
+    READED: 2,
+    APPLIED: 3,
+    READY: 4
+};
+```
+正例：    
+```javascript
+var TargetState = {
+    READING: 1,
+    READED: 2,
+    APPLIED: 3,
+    READY: 4
+};
+```
+**[强制]枚举的属性，必须使用全部大写的下划线命名法**    
+反例：    
+```javascript
+var TargetState = {
+    READBOOK: 1,
+    readed: 2,
+    appliedProgram: 3,
+    ready_to_go: 4
+};
+```
+正例：    
+```javascript
+var TargetState = {
+    READ_BOOK: 1,
+    READED: 2,
+    APPLIED_PROGRAM: 3,
+    READY_TO_GO: 4
+};
+```
+**[强制]命名空间，必须使用camel命名法**    
+反例：    
+```javascript
+equipments.HeavyWeapons = {};
+equipments.heavyweapons = {};
+```
+正例：    
+```javascript
+equipments.Heavyweapons = {};
+```
 
 #### 2.1.3 其他规则<h4 id="2.1.3"></h4>
 
