@@ -46,7 +46,7 @@
 
 ## 1 概述<h2 id="1"></h2>
 
-一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码    
+	一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码    
 
 **基本概念**    
 
@@ -82,7 +82,7 @@
 
 #### 2.1.1 命名方法<h4 id="2.1.1"></h4>
 
-命名方法通常有以下几类
+  命名方法通常有以下几类
   1. camel命名法    
 示例：
 ```javascript
@@ -106,7 +106,7 @@ var this-is-an-apple = '';
 
 #### 2.1.2 命名规则<h4 id="2.1.2"></h4>
 
-根据不同类型的内容，必须严格采用如下的命名法    
+  根据不同类型的内容，必须严格采用如下的命名法    
 **[强制]变量名，必须采用camel命名法，若变量名称由一个单词组成，必须为小写字母**    
 反例：  
 ```javascript
@@ -886,23 +886,68 @@ if (condition) {
 
 ### 3.5 函数<h3 id="3.5"></h3>
 
-  1. 函数命名
-  * 函数名与左括号之间不应该有空格，在右括号与开始程序体的左大括号之间应插入一个空格，函数程序体应缩进4个空格或1个TAB符，例如
+#### 3.5.1 函数命名<h4 id="3.5.1"></h4>
+
+**[强制]函数名的命名规则与变量命名一样，采用驼峰命名规则，首字母需要小写**    
+反例：    
 ```javascript
-function outer(c, d) {
-  var e = c * d;
-  function inner(a, b) {
-    return (e * a) + b;
-  }
-  return inner(0, 1);
+function GetValue {
+  // ...
+}
+function getvalue() {
+  // ...
 }
 ```
-  * 函数名的命名规则与变量命名一样，采用驼峰命名规则，首字母需要小写，约定以f开头，例如fGetValue()
-  * 统一使用动词或者动词+名词形式，例如：fGetVersion()、fSubmitForm()、fInit()
-  * 涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词，例如：fIsObject()、fHasClass()、fContainsElment()
-  * 对象方法命名使用f+对象类名+动词+名词形式；例如：fnAddressGetEmail()
-  * 某事件响应函数命名方式为f+触发事件对象名+事件名或者模块名，例如：fDivClick()，fAddressSubmitButtonClick()
-  2. 函数方法常用的动词
+正例：    
+```javascript
+function getValue {
+  // ...
+}
+```    
+**[强制]统一使用动词或者动词+名词形式**    
+反例：    
+```javascript
+function version {
+  // ...
+}
+```
+正例：    
+```javascript
+function getVersion {
+  // ...
+}
+function setVersion {
+  // ...
+}
+```    
+**[强制]涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词**    
+示例：    
+```javascript
+function isObject {
+  var isObject = true;
+  // ...
+  return isObject;
+}
+```    
+**[强制]对象方法命名使用对象类名+动词+名词形式**    
+示例：    
+```javascript
+function addressGetEmail {
+  // ...
+}
+```    
+**[强制]某事件响应函数命名方式为触发事件对象名+事件名或者模块名**    
+示例：    
+```javascript
+function divClick {
+  // ...
+}
+function addressSubmitButtonClick {
+  // ...
+}
+```    
+
+#### 3.5.2 函数方法常用的动词<h4 id="3.5.2"></h4>
 
 | 方法名               | 注释          | 方法名              | 注释       |
 | :----------------:  | :----------: | :-----------------: | :-------: |
@@ -934,9 +979,243 @@ function outer(c, d) {
 | enter/exit          | 进入/退出     | abort/quit          | 放弃/离开  |
 | obsolete/depreciate | 废弃/废旧     | collect/aggregate   | 收集/聚集  |
 
-  3. 不推荐构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数
+#### 3.5.3 其他事项<h4 id="3.5.3"></h4>
+
+**[强制]对功能类似的变量名采用统一的命名风格，比如小智中的DocCenter.js和ProjectPkg.js中都有打开文件夹目录的功能函数，可以将其名称统一命名为openFolder()**    
+**[建议]避免无意义的条件判断**    
+反例：    
+```javascript
+function createMicrobrewery(name) {
+  var breweryName;
+  if (name) {
+    breweryName = name;
+  } else {
+    breweryName = 'Hipster Brew Co.';
+  }
+}
+```
+正例：    
+```javascript
+function createMicrobrewery(name) {
+  var breweryName = name || 'Hipster Brew Co.';
+}
+```    
+**[强制]函数参数在理想状态下不要超过2个，如果函数参数过多，可以将其封装成一个对象进行传递**    
+反例：    
+```javascript
+function createMenu(title, body, buttonText, cancelLable) {
+	// …
+}
+```
+正例：    
+```javascript
+var menuConfig = {
+	title: ‘Foo’,
+	body: ‘Bar’,
+	buttonText: ‘Baz’,
+	cancelLable: true
+}
+
+function createMenu(menuConfig){
+	// …
+}
+```    
+**[强制]函数功能的单一性，这是软件功能中最重要的原则之一，功能不单一的函数将导致难以重构、测试和理解；功能单一的函数易于重构，并使代码更加干净**    
+**[强制]函数名应明确表明其功能**    
+反例：    
+```javascript
+function dateAdd(date, month) {
+	// …
+}
+var date = new Date();
+// 这样写很难理解dateAdd(date, 1)是什么意思
+dateAdd(date, 1);
+```
+正例：    
+```javascript
+function dateAddMonth(date, month) {
+	// …
+}
+var date = new Date();
+dateAddMonth(date, 1);
+```    
+**[建议]函数应只做一层抽象，当函数需要的抽象多于一层时通常意味着函数功能过于复杂，需将其进行分解以提高其可重用性和可测试性**    
+**[建议]移除重复的代码，永远不要在任何循环下有重复的代码。这样做毫无意义且潜在危险极大，重复的代码意味着逻辑变化时需要对不止一处进行修改，JS弱类型的特点使得函数拥有更强的普适性**    
+反例：    
+```javascript
+function showDeveloperList(developers) {
+	for (var i = 0, j = developers.length; i < j; i++) {
+		var expectedSalary = developers[i].calculateExpectedSalary();
+		var experience = developers[i].getExperience();
+		var githubLink = developers[i].getGithubLink();
+		var data = {
+			expectedSalary: expectedSalary,
+			experience: experience,
+			githubLink: githubLink
+    };
+    
+    render(data);
+  }
+}
+
+function showManagerList(managers) {
+	for (var i = 0, j = managers.length; i < j; i++) {
+		var expectedSalary = managers [i].calculateExpectedSalary();
+		var experience = managers [i].getExperience();
+		var portfolio = managers[i].getMBAProjects();
+		var data = {
+			expectedSalary: expectedSalary,
+			experience: experience,
+			portfolio: portfolio
+    };
+    
+    render(data);
+  }
+}
+```
+正例：    
+```javascript
+function showList(employees) {
+	for (var i = 0, j = employees.length; i < j; i++) {
+		var expectedSalary = employees[i].calculateExpectedSalary();
+		var experience = employees[i].getExperience();
+		var portfolio;
+		
+		if (employees[i].type === ‘manager’) {
+			portfolio = employees[i].getMBAProjects();
+    } else {
+	    portfolio = employees[i].getGithubLink();
+    }
+
+    var data = {
+	    expectedSalary: expectedSalary,
+	    experience: experience,
+	    portfolio: portfolio
+    };
+
+    render(data);
+  }
+}
+```    
+**[建议]采用默认参数精简代码**    
+反例：    
+```javascript
+function writeForumComment(subject, body) {
+  subject = subject || 'No subject';
+  body = body || 'No text';
+}
+```
+正例：    
+```javascript
+function writeForumComment(suject = 'No subject', body = 'No text') {
+  // ...
+}
+```    
+**[建议]使用Object.assign设置默认对象**    
+反例：    
+```javascript
+var menuConfig = {
+  title: null,
+  body: 'Bar',
+  buttonText: null,
+  cancelLable: true
+}
+
+function createMenu(config) {
+  config.title = config.title || 'Foo';
+  config.body = config.body || 'Bar';
+  config.buttonText = config.buttonText || 'Baz';
+  config.cancelLable = config.cancelLable === undefined ? config.cancelLable : true;
+}
+
+createMenu(menuConfig);
+```
+正例：    
+```javascript
+var menuConfig = {
+  title: 'Order',
+  // User did not include 'body' key
+  buttonText: 'Send',
+  cancellable: true
+}
+
+function createMenu(config) {
+  config = Object.assign({
+    title: 'Foo',
+    body: 'Bar',
+    buttonText: 'Baz',
+    cancelLable: true
+  }, config);
+}
+
+createMenu(menuConfig);
+```    
+**[建议]不要使用标记（Flag）作为参数函数，这通常意味着函数的功能的单一性已经被破坏，此时应考虑对函数进行再次划分**    
+反例：    
+```javascript
+function createFile(name, temp) {
+	if (temp) {
+		create('./temp/' + name);
+  } else {
+	  create(name);
+  }
+}
+```
+正例：    
+```javascript
+function createTempFile(name) {
+	create('./temp/' + name);
+}
+function createFile(name) {
+	create(name);
+}
+```    
+**[强制]避免副作用，当函数产生了除了“接受一个值并返回一个结果”之外的行为时，称该函数产生了副作用，例如：写文件、修改全局变量或将你的钱全部转给了一个陌生人等。程序在某些情况下确实需要副作用这一行为，这时应该将这些功能集中在一起，不要用多个函数/类修改某个文件，用且只用一个Service完成这一需求**    
+反例：    
+```javascript
+var name = 'Manager Zhang';
+
+function splitIntoFirstAndLastName() {
+	name = name.split(' ');
+}
+
+splitIntoFirstAndLastName();
+
+console.log(name);  // 输出['Manager', 'Zhang']
+```
+正例：    
+```javascript
+function splitIntoFirstAndLastName(name) {
+	return name.split(' ');
+}
+
+var name = 'Manager Zhang';
+var newName = splitIntoFirstAndLastName(name);
+
+console.log(name);  // 输出'Manager Zhang'
+console.log(newName);  //输出['Manager', 'Zhang']
+```    
+**[建议]尽量不要写全局函数，避免与其他类似需求的库造成冲突**    
+**[建议]采用函数式编程**    
+**[建议]封装判断条件**    
+反例：    
+```javascript
+if (fsm.state === 'fetching' && isEmpty(listNode)) {
+  // ...
+}
+```
+正例：    
+```javascript
+function shouldShowSpinner(fsm, listNode) {
+  return fsm.state === 'fetching' && isEmpty(listNode);
+}
+
+if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
+  // ...
+}
+```    
+  3. 不推荐构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数
   4. 函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义
-  5. 一个函数的参数控制在6个以内
 
 ## 4 注释<h2 id="4"></h2>
 
