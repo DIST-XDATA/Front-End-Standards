@@ -46,17 +46,23 @@
 
 ## 1 概述<h2 id="1"></h2>
 
-一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码  
-**基本概念**  
+一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码    
+
+**基本概念**    
+
   - 可维护代码需要遵循以下规则：  
   - 可理解性：其他人可以接手代码并理解它的意图和一般途径而无须原开发人员的完整解释  
   - 直观性：代码中的东西一看就能明白，不管其操作过程多么复杂  
   - 可适应性：代码在重复使用时只要求更改传入的参数而不要求修改或重写代码以达到要求  
   - 可扩展性：在代码架构上已考虑到未来允许对核心功能进行扩展  
-  - 可调试性：当有地方出错时，代码可以给予开发人员足够的信息来尽可能直接的确定问题所在，一种让代码变得可维护的简单途径就是形成一套JavaScript代码的书写约定  
-**编写目的**  
-  - 为前端开发人员的JavaScript代码编写提供参考依据和统一标准  
-**统一编程风格的意义**  
+  - 可调试性：当有地方出错时，代码可以给予开发人员足够的信息来尽可能直接的确定问题所在，一种让代码变得可维护的简单途径就是形成一套JavaScript代码的书写约定    
+
+**编写目的**    
+
+  - 为前端开发人员的JavaScript代码编写提供参考依据和统一标准    
+
+**统一编程风格的意义**    
+
   - 增加开发过程代码的强壮性、可读性、易维护性  
   - 减少有经验和无经验开发人员编程所需的脑力工作  
   - 为系统的良好维护打下好的基础  
@@ -64,9 +70,11 @@
   - 通过人为以及自动的方式对最终软件应用质量标准  
   - 使新的开发人员快速适应项目氛围  
   - 支持项目资源的复用，允许开发人员从一个项目区域（或子项目团队）移动到另一个，而不需要重新适应新的子项目团队的氛围  
-  - 一个优秀而且职业化的开发团队所必需的素质  
-**预期的读者和阅读建议**  
-  - 本文档适用于前端开发人员在进行JavaScript代码编写时进行参考  
+  - 一个优秀而且职业化的开发团队所必需的素质    
+
+**预期的读者和阅读建议**    
+
+  - 本文档适用于前端开发人员在进行JavaScript代码编写时进行参考    
 
 ## 2 总体命名规范<h2 id="2"></h2>
 
@@ -256,51 +264,329 @@ equipments.Heavyweapons = {};
 
 #### 2.1.3 其他规则<h4 id="2.1.3"></h4>
 
-  1. 所有的变量名必须使用英文名称
-  2. 命名同时还需要关注语义，例如：变量名应当使用名词，函数名应当用动宾短语，类名应当用名词等
-  3. 常量必须在对象（类）或者枚举变量的前部声明（命名规则参考变量命名）
-  4. 对于简写单词，不能使用大写名称作为变量名，例如：XML是简写单词，在使用其作为变量名时，要将其写为Xml
-  5. 变量如果有较广的作用域，可以将其设计为一个类的成员，相对的如作用域较小或为私有变量则使用简洁的单词进行命名
-  6. 公有变量必须清楚的表达自身的属性，因此应避免字义含糊不清，例如：应使用mouseEventHandler，而非mseEvtHdlr
-  7. 类/构造函数可以使用扩展其基类的名称命名，这样可以正确、迅速的找到其基类的名称，例如：基类名称为EventHandler，扩展类名称为UIEventHandler、MouseEventHandler。基类可以在明确描述其属性的前提下，缩短其命名
+[强制]所有的变量名必须使用英文名称    
+反例：    
+```javascript
+var 变量 = '';
+```
+正例：    
+```javascript
+var element = '';
+```    
+[强制]常量必须在对象（类）或者枚举变量的前部声明（命名规则参考变量命名）    
+[强制]对于简写单词，不能使用大写名称作为变量名    
+反例：    
+```javascript
+var XML = null;
+```
+正例：    
+```javascript
+var Xml = null;
+```    
+[强制]公有变量必须清楚的表达自身的属性，因此应避免字义含糊不清    
+反例：    
+```javascript
+// 鼠标响应事件
+var mseEvtHdlr = null;
+```
+正例：    
+```javascript
+// 鼠标响应事件
+var mouseEventHandler = null;
+```    
+[建议]类/构造函数可以使用扩展其基类的名称命名，这样可以正确、迅速的找到其基类的名称，例如：基类名称为EventHandler，扩展类名称为UIEventHandler、MouseEventHandler。基类可以在明确描述其属性的前提下，缩短其命名    
+[建议]命名同时还需要关注语义，例如：变量名应当使用名词，函数名应当用动宾短语，类名应当用名词等    
+[建议]变量如果有较广的作用域，可以将其设计为一个类的成员，相对的如作用域较小或为私有变量则使用简洁的单词进行命名    
 
 ### 2.2 特殊命名规范<h3 id="2.2"></h3>
 
-  1. 术语："get/set"不要和一个字段相连，除非其被定义为私有变量
-  2. 术语：compute作为变量名应为已经计算完成的变量，find作为变量名应为已经查找完成的变量，initialize或者init作为变量应为已经实例化（初始化）完成的类或者其它类型的变量
-  3. 以is开头的变量名应设置为布尔值，同理其开头也可以为has、can、should或者b
-  4. UI（用户界面）控制变量应在名称后加控制类型，例如：leftComboBox、TopScrollPane等
-  5. 复数必须有其公共的名称约定
-  6. 以num、count或者n开头的变量名约定为数字
-  7. 以str或者s开头的变量名约定为字符串
-  8. 以a开头的变量名约定为数组
-  9. 以r开头的变量名约定为正则表达式
-  10. 以o开头的变量名约定为表示以上未涉及到的其他对象
-  11. 重复变量建议使用i、j、k、l、m、n（依次类推）等名称的变量
-  12. 补充用语必须使用补充词，例如：get/set、add/remove、create/destroy、start/stop、insert/delete、begin/end等
-  13. 能缩写的名称尽量使用缩写
-  14. 避免使用有歧义的布尔变量名称，例如：isNotError、isNotFound等
-  15. 方法如果返回一个类，则应该在名称上说明返回了什么，如果是一个过程，则应该说明做了什么
+[强制]"get/set"不要和一个字段相连，除非其被定义为私有变量    
+[强制]复数必须有其公共的名称约定    
+[强制]补充用语必须使用补充词，例如：get/set、add/remove、create/destroy、start/stop、insert/delete、begin/end等    
+[建议]compute作为变量名应为已经计算完成的变量，find作为变量名应为已经查找完成的变量，initialize或者init作为变量应为已经实例化（初始化）完成的类或者其它类型的变量    
+[建议]以is开头的变量名应设置为布尔值，同理其开头也可以为has、can、should或者b    
+示例：    
+```javascript
+var isFinished = true;
+var hasSelected = true;
+var canSelect = true;
+var shouldExist = true;
+var bSelected = true;
+```    
+[建议]UI（用户界面）控制变量应在名称后加控制类型，例如：leftComboBox、TopScrollPane等    
+[建议]以num、count或者n开头的变量名约定为数字    
+示例：    
+```javascript
+var numStrLength = 0;
+var countStrLength = 0;
+var nStrLength = 0;
+```    
+[建议]以str或者s开头的变量名约定为字符串    
+示例：    
+```javascript
+var strTitle = '';
+var sTitle = '';
+```    
+[建议]以a开头的变量名约定为数组    
+示例：    
+```javascript
+var aExample = [];
+```    
+[建议]以r开头的变量名约定为正则表达式    
+示例：    
+```javascript
+var rJudge = /^[0-9-]*$/;
+```    
+[建议]以o开头的变量名约定为表示以上未涉及到的其他对象    
+[建议]重复变量建议使用i、j、k、l、m、n（依次类推）等名称的变量    
+示例：    
+```javascript
+for (var i = 0, j < length; i < j; i++) {
+  // ...
+}
+```    
+[建议]能缩写的名称尽量使用缩写    
+[建议]避免使用有歧义的布尔变量名称，例如：isNotError、isNotFound等    
+反例：    
+```javascript
+var isNotError = true;
+var isNotFound = true;
+```
+正例：    
+```javascript
+var isError = true;
+var isFound = true;
+```    
+[建议]方法如果返回一个类，则应该在名称上说明返回了什么，如果是一个过程，则应该说明做了什么    
+[建议]代表jQuery对象的变量的命名以$开头，这样一眼就能看出来这是一个jQuery变量    
 
 ## 3 详细命名规范<h2 id="3"></h2>
 
 ### 3.1 JavaScript文件<h3 id="3.1"></h3>
 
-  1. JavaScript程序应该独立保存在后缀为js的文件中
-  2. JavaScript代码不应被包含在HTML文件中，除非这是段特定只属于此部分的代码，在HTML中的JavaScript代码会明显增加文件大小
+[强制]JavaScript程序应该独立保存在后缀为js的文件中    
+[强制]JavaScript代码不应被包含在HTML文件中，除非这是段特定只属于此部分的代码，在HTML中的JavaScript代码会明显增加文件大小    
 
 ### 3.2 布局<h3 id="3.2"></h3>
 
-  1. 缩进使用4个空白符或1个TAB的制表位
-  2. 表达式的缩进与变量声明应一致
-  3. 代码折叠起来进行表示，感官上完全并且合乎逻辑
-  4. 函数的参数应采用明确的缩进，缩进规则与其他块保持一致
-  5. 避免每行超过80个字符，当一条语句一行写不下时，要考虑换行
-  6. 在运算符号（最好是逗号）后换行，在运算符后换行可以减少因为复制粘贴产生的错误被分号掩盖的几率，下一行应该缩进8个空格或2个TAB符
+#### 3.2.1 空格<h4 id = "3.2.1"></h4>
+
+[强制]二元运算符两侧必须有一个空格，一元运算符与操作对象之间不允许有空格    
+示例：    
+```javascript
+var a = !arr.length;
+a++;
+a = b + c;
+```    
+[强制]用作代码块起始的左括号（{）前必须有一个空格    
+反例：    
+```javascript
+if (condition){
+	// …
+}
+while (condition){
+	// …
+}
+function funcName(){
+	// …
+}
+```
+正例：    
+```javascript
+if (condition) {
+	// …
+}
+while (condition) {
+	// …
+}
+function funcName() {
+	// …
+}
+```    
+[强制]if/else/for/while/function/switch/do/try/catch/finally关键字后，必须有一个空格    
+示例：    
+```javascript
+if (condition) {
+	// …
+}
+while (condition) {
+	// …
+}
+(function () {
+	// …
+})();
+```    
+[强制]在对象创建时，属性中的:之后必须有空格，:之前不允许有空格    
+反例：    
+```javascript
+var obj = {
+	a : 1,
+	b:2,
+	c :3
+};
+```
+正例：    
+```javascript
+var obj = {
+	a: 1,
+	b: 2,
+	c: 3
+};
+```    
+[强制]函数声明、具名函数表达式、函数调用中，函数名和左括号（(）之间不允许有空格    
+反例：    
+```javascript
+function funcName () {
+	// …
+}
+var funcName = function funcName () {
+	// …
+}
+funcName ();
+```
+正例：    
+```javascript
+function funcName() {
+	// …
+}
+var funcName = function funcName() {
+	// …
+}
+funcName();
+```    
+[强制]逗号（,）和分号（;）前不允许有空格，如果不位于行尾，逗号（,）和分号（;）后必须跟一个空格    
+反例：    
+```javascript
+callFunc(a , b);
+```
+正例：    
+```javascript
+callFunc(a, b);
+```    
+[强制]在函数调用、函数声明、括号表达式、属性访问、if/for/while/switch/catch等语句中，()和[]内紧贴括号部分不允许有空格    
+反例：    
+```javascript
+callFunc( param1, param2, param3 );
+save( this.list[ this.indexes[ i ] ] );
+needIncreament && ( variable += increament );
+if ( num > list.length ) {
+	// …
+}
+while ( len-- ) {
+	// …
+}
+```
+正例：    
+```javascript
+callFunc(param1, param2, param3);
+save(this.list[this.indexes[i]]);
+needIncreament && (variable += increament);
+if (num > list.length) {
+	// …
+}
+while (len--) {
+	// …
+}
+```    
+[强制]单行声明的数组与对象，如果包含元素，{}和[]内紧贴括号部分不允许包含空格。声明包含元素的数组与对象，只有当内部元素的形式较为简单时，才允许写在一行。元素复杂的情况，应当换行书写    
+反例：    
+```javascript
+var arr1 = [ ];
+var arr2 = [ 1, 2, 3 ];
+var obj1 = { };
+var obj2 = { name: ‘obj’ };
+var obj3 = {name: ‘obj’, age: 20, sex: 1};
+```
+正例：    
+```javascript
+var arr1 = [];
+var arr2 = [1, 2, 3];
+var obj1 = {};
+var obj2 = {name: ‘obj’};
+var obj3 = {
+  name: ‘obj’,
+  age: 20,
+  sex: 1
+};
+```    
+[强制]行尾不得有多余的空格    
+
+#### 3.2.2 缩进<h4 id = "3.2.2"></h4>
+
+[强制]缩进使用4个空白符或1个TAB的制表位    
+[强制]表达式的缩进与变量声明应一致    
+[强制]代码折叠起来进行表示，感官上完全并且合乎逻辑    
+[强制]函数的参数应采用明确的缩进，缩进规则与其他块保持一致    
+
+#### 3.2.3 换行<h4 id = "3.2.3"></h4>
+
+[强制]每个独立语句结束后必须换行    
+[强制]避免每行超过80个字符，当一条语句一行写不下时，要考虑换行。超长的不可分割的代码允许例外，比如复杂的正则表达式，长字符串不在例外之列    
+[强制]在运算符号（最好是逗号）后换行，在运算符后换行可以减少因为复制粘贴产生的错误被分号掩盖的几率，下一行应该缩进8个空格或2个TAB符    
+[强制]运算符换行时，运算符必须在新行的行首    
+反例：    
+```javascript
+if (user.isAuthenticated() &&
+user.isInRole(‘admin’) &&
+user.hasAuthority(‘add-admin’) ||
+user.hasAuthority(‘delete-admin’)) {
+	// …
+}
+var result = number1 + number2 + number3 +
+   number4 + number5;
+```
+正例：    
+```javascript
+if (user.isAuthenticated()
+&& user.isInRole(‘admin’)
+&& user.hasAuthority(‘add-admin’)
+|| user.hasAuthority(‘delete-admin’)) {
+	// …
+}
+var result = number1 + number2 + number3
+     + number4 + number5;
+```    
+[强制]在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在逗号（,）或分号（;）前换行    
+反例：    
+```javascript
+var obj = {
+	a: 1
+	, b: 2
+	, c: 3
+};
+foo(
+	aVeryVeryLongArgument
+	, anotherVeryLongArgument
+	, callback
+);
+```
+正例：    
+```javascript
+var obj = {
+	a: 1,
+	b: 2,
+	c: 3
+};
+foo(
+	aVeryVeryLongArgument,
+	anotherVeryLongArgument,
+	callback
+);
+```    
+[建议]不同行为或逻辑的语句集，使用空行隔开，更易阅读
 
 ### 3.3 变量<h3 id="3.3"></h3>
 
-  1. 变量名应由26个大小写字母（a...z,A...Z），10个数字（0...9）和下划线中的元素组成，避免使用国际化字符（如中文）
+[强制]变量名应由26个大小写字母（a...z,A...Z），10个数字（0...9）和下划线中的元素组成，避免使用国际化字符（如中文）    
+反例：    
+```javascript
+var 变量 = '';
+```
+正例：    
+```javascript
+var element = '';
+var _element = '';
+```    
   2. 变量必须在声明初始化以后才能使用，即便是null类型
   3. 变量不能产生歧义
   4. 相关的变量集应该放在同一代码块中，非相关的变量集不应该放在同一代码块中
