@@ -46,7 +46,7 @@
 
 ## 1 概述<h2 id="1"></h2>
 
-	一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码    
+  一个优秀的程序员应该能够编写既能让电脑识别的代码又能让其他开发人员能够看懂并愿意去看的规范代码（规范代码就是结构清晰、可读性高、代码易于维护、不至于太过程化而杂乱无章），也就是书写可维护性的代码    
 
 **基本概念**    
 
@@ -1214,8 +1214,368 @@ if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
   // ...
 }
 ```    
-  3. 不推荐构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数
-  4. 函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义
+**[建议]避免"否定情况"的判断**    
+反例：    
+```javascript
+function isDOMNodeNotPresent(node) {
+	// …
+}
+if (!isDOMNodeNotPresent(node)) {
+	// …
+}
+```
+正例：    
+```javascript
+function isDOMNodePresent(node){
+	// …
+}
+if (isDOMNodePresent(node)) {
+	// …
+}
+```    
+**[建议]避免过多的条件判断，许多情况下通过使用多态可以达到同样的目的，同时要保持函数功能的单一性**    
+反例：    
+```javascript
+class Airplane {
+	// …
+	getCruisingAltitude() {
+	  switch (this.type) {
+	    case ‘777’:
+		    return getMaxAltitude() – getPassengerCount();
+		    break;
+	    case ‘Air Force One’:
+		    return getMaxAltitude();
+		    break;
+	    case ‘Cessna’:
+		    return getMaxAltitude() – getFuelExpenditure();
+		    break;
+    }
+  }
+}
+```
+正例：    
+```javascript
+class Airplane {
+	// …
+}
+
+class Boeing777 extends Airplane {
+	// …
+	getCruisingAltitude() {
+		return getMaxAltitude() – getPassengerCount();
+  }
+}
+
+class AirForceOne extends Airplane {
+	// …
+	getCruisingAltitude() {
+		return getMaxAltitude();
+  }
+}
+
+class Cessna extends Airplane {
+	// …
+	getCruisingAltitude() {
+		return getMaxAltitude() – getFuelExpenditure();
+  }
+}
+```    
+**[建议]避免过度优化，现在的浏览器在运行后会对代码进行自动优化**    
+反例：    
+```javascript
+// 这里使用变量len是因为在老式浏览器中，
+// 直接使用正解中的方式会导致每次循环均重复计算list.length的值，
+// 而在现代浏览器中会自动完成优化，这一行为是没有必要的
+for (var i = 0, len = list.length; i < len; i++) {
+  // ...
+}
+```
+正例：    
+```javascript
+for (var i = 0; i < list.length; i++) {
+  // ...
+}
+```    
+**[强制]删除无效的代码，不再被调用的代码应及时删除**    
+反例：    
+```javascript
+function oldRequestModule(url) {
+	// …
+}
+
+function newRequestModule(url) {
+	// …
+}
+
+var req = newReqestModule;
+// oldRequestModule方法已经不再被调用，因此应该从代码中删掉
+```
+正例：    
+```javascript
+function newRequestModule(url) {
+	// …
+}
+
+var req = newReqestModule;
+```    
+**[强制]函数定义结束不允许添加分号**    
+反例：    
+```javascript
+function funcName() {
+	// …
+};
+```
+正例：    
+```javascript
+function funcName() {
+	// …
+}
+// 如果是函数表达式，分号是不允许省略的
+var funcName = function() {
+	// …
+};
+```    
+**[强制]IIFE（Immediately-Invoked Function Expression），额外的括号能够让代码在阅读的一开始就能判断函数是否立即被调用，进而明白接下来代码的用途。必须在函数表达式外添加括号，非IIFE不得在函数表达式外添加括号**    
+反例：    
+```javascript
+var task = function() {
+	// …
+  return result;
+}();
+var func = (function() {
+	// …
+});
+```
+正例：    
+```javascript
+var task = (function() {
+	// …
+  return result;
+})();
+var func = function() {
+	// …
+};
+```    
+**[强制]空函数不使用new Function()的形式**    
+示例：    
+```javascript
+var emptyFunction = function() {};
+```    
+**[建议]对于性能有高要求的场合，可以存在一个空函数的常量，供多出使用共享**    
+示例：    
+```javascript
+var EMPTY_FUNCTION = function() {};
+function MyClass() {
+	// …
+}
+MyClass.prototype.abstractMethod = EMPTY_FUNCTION;
+MyClass.prototype.hooks.before = EMPTY_FUNCTION;
+MyClass.prototype.hooks.after = EMPTY_FUNCTION;
+```    
+**[建议]尽量不构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数**    
+
+### 3.6 数组<h3 id="3.6"></h3>
+
+**[建议]当不因为性能原因自己实现数组排序功能的时候，尽量使用数组的sort方法。自己实现的常规排序算法，在性能上并不优于数组默认的sort方法，但以下两种场景可以自己实现排序**    
+  - （1）需要稳定的排序算法，达到严格一致的排序结果
+  - （2）数据特点鲜明，适合使用桶排
+**[建议]清空数组使用array.length = 0**    
+示例：    
+```javascript
+var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// 清空数组
+array.length = 0;
+```    
+4. 函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义
+
+## 4 对象和数据结构<h2 id="4"></h2>
+
+**[建议]使用getters和setters，JavaScript没有接口或类型，因此实现这一模式是很困难的，因为没有类似public和private的关键词。然而，使用getters和setters获取对象的数据远比直接使用点操作符更有优势，原因如下**    
+  - （1）当需要对获取的对象属性执行额外操作时该方法更加便利
+  - （2）执行set时可以增加规则对需要的变量的合法性进行判断
+  - （3）封装了内部逻辑
+  - （4）在存取时可以方便的增加日志和错误处理
+  - （5）继承该类时可以重载默认行为
+  - （6）从服务器获取数据时可以增加懒加载
+反例：    
+```javascript
+class BankAccount {
+	constructor() {
+	this.balance = 1000;
+  }
+}
+
+var bankAccount = new BankAccount();
+
+bankAccount.balance = bankAccount.balance – 100;
+```
+正例：    
+```javascript
+class BankAccount {
+	constructor() {
+		this.balance = 1000;
+  }
+  Withdraw(amount) {
+	  if (verifyAmountCanBeDeducted(amount)) {
+		  this.balance -= amount;
+    }
+  }
+}
+
+var bankAccount = new BankAccount();
+
+bankAccount.withdraw(100);
+```    
+**[建议]让成员拥有私有成员，可以通过闭包完成**    
+反例：    
+```javascript
+var Employee = function(name) {
+	this.name = name;
+}
+
+Employee.prototype.getName = function() {
+	return this.name;
+}
+
+var employee = new Employee('Manager Zhang');
+console.log('Employee name: ' + employee.getName());  // Employee name: Manager Zhang
+delete employee.name;
+console.log('Employee name: ' + employee.getName());  // Employee name: undefined
+```
+正例：    
+```javascript
+Var Employee = (function() {
+	function Employee(name) {
+		this.getName = function() {
+			return name;
+    };
+  }
+  return Employee;
+}());
+
+var employee = new Employee('Manager Zhang');
+console.log('Employee name: ' + employee.getName());  // Employee name: Manager Zhang
+delete employee.name;
+console.log('Employee name: ' + employee.getName());  // Employee name: Manager Zhang
+```    
+**[强制]对象创建时，如果一个对象的所有属性均可以不添加引号，所有属性不添加引号；如果任何一个属性需要添加引号，则所有属性建议添加''**    
+示例：    
+```javascript
+var info = {
+	name: 'Manager Zhang',
+	age: 28
+}
+
+var info = {
+	'name': 'Manager Zhang',
+	'age': 28
+}
+```    
+**[强制]不允许修改和扩展任何原生对象和宿主对象的原型**    
+示例：    
+```javascript
+// 以下行为绝对禁止
+String.prototype.trim = function() {
+	// …
+};
+```    
+**[建议]访问对象属性时，尽量使用'.'进行访问**    
+  - （1）属性名符合Identifier的要求，就可以通过'.'来访问，否则就只能通过[expr]方式访问
+  - （2）通常在JavaScript中声明的对象，属性命名是使用camel命名法，用'.'来访问更清晰简洁。部分特殊的属性（比如来自后端的JSON），可能采用不寻常的命名方式，可以通过[expr]方式进行访问
+示例：    
+```javascript
+info.age;
+info['more-info'];
+```    
+**[建议]使用for in遍历对象时，使用hasOwnProperty过滤掉原型中的属性**    
+示例：    
+```javascript
+var newInfo = {};
+for (var key in info) {
+	if (info.hasOwnProperty(key)) {
+		newInfo[key] = info[key];
+  }
+}
+```    
+
+## 5 类型<h2 id="5"></h2>
+
+**[建议]类型检测优先使用typeof，对象类型检测使用instanceof，null或undefined的检测使用 == null**    
+示例：    
+```javascript
+// string
+typeof variable === 'string'
+// number
+typeof variable === 'number'
+// boolean
+typeof variable === 'boolean'
+// function
+typeof variable === 'function'
+// object
+typeof variable === 'object'
+// RegExp
+variable instanceof RegExp
+// Array
+variable instanceof Array
+// null
+variable === null
+// null or undefined
+variable == null
+// undefined
+typeof variable === 'undefined'
+```    
+**[建议]类型转换，当转换成string时，使用 + ''**    
+反例：    
+```javascript
+new String(num);
+num.toString();
+String(num);
+```
+正例：    
+```javascript
+num + '';
+```    
+**[建议]类型转换，当转换成number时，使用 + **    
+反例：    
+```javascript
+Number(str);
+```
+正例：    
+```javascript
++ str;
+```    
+**[建议]类型转换，string转换成number，要转换的字符串结尾包含非数字并期望忽略时，使用parseInt**    
+示例：    
+```javascript
+var width = '200px';
+parseInt(width, 10);
+```    
+**[强制]使用parseInt时，必须指定进制**    
+反例：    
+```javascript
+parseInt(str);
+```
+正例：    
+```javascript
+parseInt(str, 10);
+```    
+**[建议]类型转换，转换成boolean时，使用!!**    
+示例：    
+```javascript
+var num = 3.14;
+!!num;
+```    
+**[建议]number去除小数点，使用Math.floor/Math.round/Math.ceil，不使用parseInt**    
+反例：    
+```javascript
+var num = 3.14;
+parseInt(num, 10);
+```
+正例：    
+```javascript
+var num = 3.14;
+Math.ceil(num);
+```    
 
 ## 4 注释<h2 id="4"></h2>
 
