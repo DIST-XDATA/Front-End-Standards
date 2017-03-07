@@ -1373,12 +1373,13 @@ MyClass.prototype.hooks.before = EMPTY_FUNCTION;
 MyClass.prototype.hooks.after = EMPTY_FUNCTION;
 ```    
 **[建议]尽量不构造超长函数，当函数超过100行，就要想想是否能将函数拆为两个或多个函数**    
+**[建议]调用的函数和被调函数应放在较近的位置。当函数之间存在相互调用的情况时，应将两者置于较近的位置。理想情况下，应将调用其他函数的函数写在被调用函数的上方**    
 
 ### 3.6 数组<h3 id="3.6"></h3>
 
-**[建议]当不因为性能原因自己实现数组排序功能的时候，尽量使用数组的sort方法。自己实现的常规排序算法，在性能上并不优于数组默认的sort方法，但以下两种场景可以自己实现排序**    
-  - （1）需要稳定的排序算法，达到严格一致的排序结果
-  - （2）数据特点鲜明，适合使用桶排
+**[建议]当不因为性能原因自己实现数组排序功能的时候，尽量使用数组的sort方法。自己实现的常规排序算法，在性能上并不优于数组默认的sort方法，但以下两种场景可以自己实现排序**  
+  - （1）需要稳定的排序算法，达到严格一致的排序结果  
+  - （2）数据特点鲜明，适合使用桶排  
 **[建议]清空数组使用array.length = 0**    
 示例：    
 ```javascript
@@ -1386,17 +1387,16 @@ var array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // 清空数组
 array.length = 0;
 ```    
-4. 函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义
 
 ## 4 对象和数据结构<h2 id="4"></h2>
 
-**[建议]使用getters和setters，JavaScript没有接口或类型，因此实现这一模式是很困难的，因为没有类似public和private的关键词。然而，使用getters和setters获取对象的数据远比直接使用点操作符更有优势，原因如下**    
-  - （1）当需要对获取的对象属性执行额外操作时该方法更加便利
-  - （2）执行set时可以增加规则对需要的变量的合法性进行判断
-  - （3）封装了内部逻辑
-  - （4）在存取时可以方便的增加日志和错误处理
-  - （5）继承该类时可以重载默认行为
-  - （6）从服务器获取数据时可以增加懒加载
+**[建议]使用getters和setters，JavaScript没有接口或类型，因此实现这一模式是很困难的，因为没有类似public和private的关键词。然而，使用getters和setters获取对象的数据远比直接使用点操作符更有优势，原因如下**  
+  - （1）当需要对获取的对象属性执行额外操作时该方法更加便利  
+  - （2）执行set时可以增加规则对需要的变量的合法性进行判断  
+  - （3）封装了内部逻辑  
+  - （4）在存取时可以方便的增加日志和错误处理  
+  - （5）继承该类时可以重载默认行为  
+  - （6）从服务器获取数据时可以增加懒加载  
 反例：    
 ```javascript
 class BankAccount {
@@ -1479,9 +1479,9 @@ String.prototype.trim = function() {
 	// …
 };
 ```    
-**[建议]访问对象属性时，尽量使用'.'进行访问**    
-  - （1）属性名符合Identifier的要求，就可以通过'.'来访问，否则就只能通过[expr]方式访问
-  - （2）通常在JavaScript中声明的对象，属性命名是使用camel命名法，用'.'来访问更清晰简洁。部分特殊的属性（比如来自后端的JSON），可能采用不寻常的命名方式，可以通过[expr]方式进行访问
+**[建议]访问对象属性时，尽量使用'.'进行访问**  
+  - （1）属性名符合Identifier的要求，就可以通过'.'来访问，否则就只能通过[expr]方式访问  
+  - （2）通常在JavaScript中声明的对象，属性命名是使用camel命名法，用'.'来访问更清晰简洁。部分特殊的属性（比如来自后端的JSON），可能采用不寻常的命名方式，可以通过[expr]方式进行访问  
 示例：    
 ```javascript
 info.age;
@@ -1577,12 +1577,307 @@ var num = 3.14;
 Math.ceil(num);
 ```    
 
-## 4 注释<h2 id="4"></h2>
+## 6 类<h2 id="6"></h2>
 
-### 4.1 注释内容<h3 id="4.1"></h3>
+### 6.1 单一职责原则<h3 id="6.1"></h3>
 
-  1. JS文件开头注释
-  * [建议]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新
+**修改一个类的理由不应该超过一个。将多个功能塞进一个类的想法很诱人，但这将导致你的类无法达到概念上的内聚，并经常不得不进行修改**  
+**最小化对一个类需要修改的次数是非常有必要的。如果一个类具有太多太杂的功能，当你对其中一小部分进行修改时，将很难想象到这一修改将会对代码库中依赖该类的其他模块带来什么样的影响**  
+反例：    
+```javascript
+class UserSettings {
+	constructor(user) {
+		this.user = user;
+  }
+
+  changeSettings(settings) {
+	  if (this.verifyCredentials(user)) {
+		  // …
+    }
+  }
+
+  verifyCredentials(user) {
+	  // …
+    }
+}
+```
+正例：    
+```javascript
+class UserAuth {
+	constructor(user) {
+		this.user = user;
+  }
+
+  verifyCredentials() {
+	  // …
+  }
+}
+
+class UserSettings {
+	constructor(user) {
+		this.user = user;
+		this.auth = new UserAuth(user);
+  }
+
+  changeSettings(settings) {
+	  if (this.auth.verifyCredentials()) {
+		  // …
+    }
+  }
+}
+```    
+
+### 6.2 开/闭原则（OCP）<h3 id="6.2"></h3>
+
+**代码实体（类、模块、函数等）应该易于扩展，难于修改。这一原则指的是我们应允许用户方便的扩展我们代码模块的功能，而不需要打开js文件源码手动对其进行修改**  
+反例：    
+```javascript
+class AjaxRequester {
+	constructor() {
+	this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
+  }
+
+  get(url) {
+	  // …
+  }
+}
+```
+正例：    
+```javascript
+class AjaxRequester {
+	constructor() {
+		this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
+  }
+
+  get(url) {
+	  // …
+  }
+  addHTTPMethod(method) {
+	  this.HTTP_METHODS.push(method);
+  }
+}
+```    
+
+### 6.3 利斯科夫替代原则（LSP）<h3 id="6.3"></h3>
+
+**子类对象应该能够替换其次超类对象被使用。也就是说，如果有一个父类和一个子类，当采用子类替代父类时不应该产生错误的结果**  
+
+### 6.4 接口隔离原则（ISP）<h3 id="6.4"></h3>
+
+**客户端不应该依赖它不需要的接口，一类对另一个类的依赖应建立在最小的接口上。在JS中，当一个类需要许多参数设置才能生成一个对象时，或许大多数时候不需要设置这么多的参数。此时减少对配置参数数量的需求是有益的**  
+反例：    
+```javascript
+class DOMTraverser {
+	constructor(settings) {
+		this.settings = settings;
+		this.setup();
+  }
+
+  setup() {
+	  this.rootNode = this.settings.rootNode;
+	  this.animationModule.setup();
+  }
+
+  traverse() {
+	  // …
+  }
+}
+
+var domTraverser({
+	rootNode: document.getElementByTagName(‘body’);
+	animationModule: function() {
+		// 大多数情况下不需要此方法
+  }
+});
+```
+正例：    
+```javascript
+class DOMTraverser {
+	constructor(settings) {
+		this.settings = settings;
+		this.options = settings.options;
+		this.setup();
+  }
+
+  setup() {
+	  this.rootNode = this.settings.rootNode;
+    this.setupOptions();
+  }
+
+  setupOptions() {
+	  if (this.options.animationModule) {
+		  // …
+    }
+  }
+
+  traverse() {
+	  // …
+  }
+}
+
+var domTraverser({
+	rootNode: document.getElementByTagName(‘body’);
+	options: {
+		animationModule: function() {}
+  }
+});
+```    
+
+### 6.5 依赖反转原则（DIP）<h3 id="6.5"></h3>
+
+**该原则有两个核心点**  
+  - （1）高层模块不应该依赖于低层模块，他们都应该依赖于抽象接口  
+  - （2）抽象接口应该脱离具体实现，具体实现应依赖于抽象接口  
+
+### 6.6 其他<h3 id="6.6"></h3>
+
+**[建议]使用ES6的classes而不是ES5的function。典型的ES5的类（function）在继承、构造和方法定义方面可读性较差。当需要继承时，优先选用classes。但是，当在需要更大更复杂的对象时，最好优先选择更小的function而非classes**  
+**[建议]使用方法链。有争论说方法链不够干净，而且违反了德米特法则，这也许是对的，但这种方法在JS及许多库（如JQuery）中显得非常实用。因此，在JS中使用方法链是非常合适的，在class的函数中返回this，能够方便的将类需要执行的多个方法链接起来**  
+反例：    
+```javascript
+class Car {
+	constructor() {
+		this.make = ‘Honda’;
+		this.model = ‘Accord’;
+		this.color = ‘white’;
+  }
+
+  setMake(make) {
+	  this.name = name;
+  }
+
+  setModel(model) {
+	  this.model = model;
+  }
+
+  setColor(color) {
+	  this.color = color;
+  }
+
+  save() {
+	  console.log(this.make, this.model, this.color);
+  }
+}
+
+var car = new Car(0);
+car.setColor(‘pink’);
+car.setMake(‘Ford’);
+car.setModel(‘F-150’);
+car.save();
+```
+正例：    
+```javascript
+class Car {
+	constructor() {
+		this.make = ‘Honda’;
+		this.model = ‘Accord’;
+		this.color = ‘white’;
+  }
+
+  setMake(make) {
+	  this.name = name;
+	  return this;
+  }
+
+  setModel(model) {
+	  this.model = model;
+	  return this;
+  }
+
+  setColor(color) {
+	  this.color = color;
+	  return this;
+  }
+
+  save() {
+	  console.log(this.make, this.model, this.color);
+  }
+}
+var car = new Car().setColor(‘pink’).setMake(‘Ford’).setModel(‘F-150’).save();
+```    
+**[建议]优先使用组合模式而非继承。应多使用组合模式而非继承，在想使用继承前，多想想能否通过组合模式满足需求。在以下三点情况下使用继承具有更大的优势**  
+  - （1）继承关系表现为“是一个”而非“有一个”（例如动物人应使用继承，用户用户细节应使用组合）  
+  - （2）可以复用基类的代码  
+  - （3）希望当基类改变时所有派生类都受到影响  
+反例：    
+```javascript
+class Employee {
+	constructor(name, email) {
+		this.name = name;
+		this.email = email;
+  }
+
+  // …
+}
+// 在这种情况下不应该使用继承
+// 因为Employees拥有tax属性，并且EmployeeTaxData并不是Employee中的一种
+class EmployeeTaxData extends Employee {
+	constructor(ssn, salary) {
+		super();
+		this.ssn = ssn;
+		this.salary = salary;
+  }
+
+  // …
+}
+```
+正例：    
+```javascript
+class Employee {
+	constructor(name, email) {
+		this.name = name;
+		this.email = email;
+  }
+
+  setTaxData(ssn, salary) {
+	  this.taxData = new EmployeeTaxData(ssn, salary);
+  }
+
+  // …
+}
+
+class EmployeeTaxData {
+	constructor(ssn, salary) {
+		this.ssn = ssn;
+		this.salary = salary;
+  }
+
+  // …
+}
+```    
+
+## 7 错误处理<h2 id="7"></h2>
+
+**[强制]函数调用返回的错误信息，统一使用变量ex（exception）或者err（error）对其进行定义**  
+**[建议]要捕捉错误，错误抛出是个好东西，对捕捉的错误不做任何处理是没有意义的，应该对这些可能的错误存在相应的处理方案**    
+反例：    
+```javascript
+try {
+  functionThatMightThrow();
+} catch (error) {
+  console.log(error);
+}
+```
+正例：    
+```javascript
+try {
+  functionThatMightThrow();
+} catch (error) {
+  // 方案1
+  console.log(error);
+  // 方案2
+  notifyUserOfError(error);
+  // 方案3
+  reportErrorToService(error);
+}
+```    
+
+## 8 注释<h2 id="8"></h2>
+
+### 8.1 注释内容<h3 id="8.1"></h3>
+
+**[强制]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新**    
+示例：    
 ```javascript
 /*
 *@fileName:文件名
@@ -1593,73 +1888,104 @@ Math.ceil(num);
 *@modifiedTime:修改时间
 *@modifiedDesc:修改描述
 */
-```
-  2. 大功能区注释
-  * [建议]在大功能区（或难以理解的部分）代码的开头添加注释，对其功能、参数及返回值进行描述*（具体详见JSDOC注释规范）*
+```    
+**[强制]在大功能区（或难以理解的部分）代码的开头添加注释，对其功能、参数及返回值进行描述*（具体详见JSDOC注释规范）***    
+示例：    
 ```javascript
 /*
 *@desc:功能描述
 *@param:参数描述
 *@return:返回值
 */
-```
-  3. 单行注释
-  * [建议]放在行末尾，对该行代码进行说明，//后面跟一个空格再跟注释内容
+```    
+**[强制]单行注释放在行末尾或与标识代码对齐，对该行代码或该区块代码进行说明，//后面跟一个空格再跟注释内容**    
+示例：    
 ```javascript
-// 注释内容
-```
-  4. 特殊标记
-  * *（具体详见JSDOC注释规范）*
-  * TODO：有功能待实现，此时需要对将要实现的功能进行简单说明
-  * FIXME：该处代码运行没问题，但可能由于时间赶或其他原因，需要修正，此时需要对如何修正进行简单说明
-  * HACK：为修正某些问题而写的不太好或者使用了某些诡异手段的代码，此时需要对思路或诡异手段进行描述
-  * XXX：该处存在陷阱，此时需要对陷阱进行描述
-  5. 其他注释说明
-  * *（具体详见JSDOC注释规范）*
-  * 命名空间注释使用@namespace
-  * 类或构造函数注释使用@class
-  * 类的继承信息注释使用@extends
-  * 使用包装方式扩展类成员时，通过@lends进行重新指向
-  * 类的属性或方法等成员信息使用@public/@protected/@private中的任意一个，指明可访问性。当函数是内部函数，外部不可访问时，可以使用@inner标识。重写父类方法时，应当添加@override标识
-  * 事件注释使用@event，事件参数的标识与方法描述的参数相同
-  * 常量注释使用@const，并包含说明和类型信息
-  * 对于类型未定义的复杂结构的注释，可以使用@typeof标识来定义
-  * AMD模块使用@module或@exports标识，对于已使用@moudle标识为AMD模块的引用，在namepaths中必须增加"moudle:"作为前缀（若namepaths没有前缀，则生成的文档中将无法正确生成链接）
+var element = ''; // 注释内容
 
-### 4.2 注释规范<h3 id="4.2"></h3>
+// 这里是一个循环
+for (var i = 0, j < length; i < j; i++) {
+  // ...
+}
+```    
+**[强制]注释避免位置标记，采用适当的缩进即可**    
+反例：    
+```javascript
+////////////////////////////////////////////////
+// Scope Model Instantiation
+///////////////////////////////////////////////
+var model = {
+	menu: ‘foo’,
+	nav: ‘bar’
+};
+////////////////////////////////////////////////
+// Action setup
+///////////////////////////////////////////////
+var actions = function() {
+	// …
+}
+```
+正例：    
+```javascript
+// Scope Model Instantiation
+var model = {
+	menu: ‘foo’,
+	nav: ‘bar’
+};
+// Action setup
+var actions = function() {
+	// …
+}
+```    
+**[强制]避免在源文件中写入法律评论，将法律评论写入LICENSE文件中，再将LICENSE文件置于源代码目录树的根目录**    
+**[强制]对于内部实现、不容易理解的逻辑说明、摘要信息等，我们可能需要编写细节注释。细节注释遵循单行注释的格式，说明必须换行时，每行是一个单行注释的起始**    
+示例：    
+```javascript
+function foo(p1, p2, p3) {
+	// 这里对具体内部逻辑进行说明
+	// 说明太长需要换行
+	for (…) {
+		// …
+  }
+}
+```    
+**[建议]使用TODO表示有功能待实现，此时需要对将要实现的功能进行简单说明**    
+**[建议]使用FIXME表示该处代码运行没问题，但可能由于时间赶或其他原因，需要修正，此时需要对如何修正进行简单说明**    
+**[建议]使用HACK表示为修正某些问题而写的不太好或者使用了某些诡异手段的代码，此时需要对思路或诡异手段进行描述**    
+**[建议]使用XXX表示该处存在陷阱，此时需要对陷阱进行描述**    
+
+### 8.2 注释规范<h3 id="8.2"></h3>
 
   1. 在对函数进行声明时，应用JSDOC对其进行相应的注释说明
   2. 注释应该是解释为什么和做什么，而不是介绍是什么
   3. 总是使注释保持最新
-  4. 变量声明时，使用行尾注释，其他情况下，使用单行注释并于标识的代码对齐
-  5. 不注释难以理解的代码，而应该重写它
-  6. 避免多余的或不适当的注释
-  7. 对由循环和逻辑分支组成的代码使用注释
-  8. 使用具有一致的风格和语言书写注释
-  9. 用空白将注释同注释分隔符分开。在没有颜色提示的情况下查看注释时，这样做会使注释很明显且容易被找到
+  4. 不注释难以理解的代码，而应该重写它
+  5. 避免多余的或不适当的注释
+  6. 对由循环和逻辑分支组成的代码使用注释
+  7. 使用具有一致的风格和语言书写注释
+  8. 不要在代码库中遗留被注释掉的代码
 
-## 5 其他注意事项<h2 id="5"></h2>
+## 9 其他注意事项<h2 id="9"></h2>
 
   1. 善于使用IDEA自带的一些功能操作使代码布局更加美观
-  2. 总是检查数据，要检查你的方法输入的所有数据，一方面是为了安全性，另一方面是为了可用性
-  3. 部署前需要压缩JavaScript文件
-  4. 在方法顶端定义所有变量，在大部分情况下var语句应该为方法体内的第一个语句
-  5. 尽量少使用全局变量，隐式的全局变量应该从来不使用，同时也应尽量避免全局函数的使用
-  6. 代码结构应该提供最好的可读性
-  7. 不要在命名中使用里使用$，把它留给JQuery，也不要使用反斜杠（/）
-  8. 在每个简单语句末尾添加一个;(分号)
-  9. 谨慎使用逗号操作符，一般包括在for语句的控制部分的、对象字面量、数组字面量、var语句和参数列表
-  10. 不要在if和while语句块中对条件部分赋值
-  11. 避免与null进行比较
-  12. 始终使用===和!==操作符会更好，==和!=操作符会做类型强制转换
-  13. 不要使用===来和假值做比较，if(obj)一般都可以达到目的
-  14. 注意不要在+后面跟+或++。这种模式令人混淆
-  15. eval方法是JavaScript里最易滥用的特性。除非解析JSON数据，否则不要使用它
-  16. 为了避免混乱，在HTML中使用双引号，在JavaScript中使用单引号
-  17. 不要为了偷懒而省略引号和{}
-  18. 当需要缓存this时需要使用self变量（也可以是其他变量，例如obj、widget等）进行缓存
-  19. 如果针对的是不断运行的代码，不应该使用setTimeout，而应该是用setInterval，因为setTimeout每一次都会初始化一个定时器，而setInterval只会在开始的时候初始化一个定时器
-  20. 删除dom节点之前，一定要删除注册在该节点上的事件，否则将会产生无法回收的内存。另外，在removeChild和innerHTML = ''二者之间，尽量选择后者，因为前者无法有效地释放dom节点
-  21. 在JavaScript中，我们可以使用for(;;)、while()、for(in)三种循环，事实上，这三种循环中for(in)的效率极差，尽量使用for(;;)循环和while()循环，其中while()循环效率最好
+  2. 黄金法则：不管项目成员有多少，一行代码不应由2个以上的人参与编写
+  3. 总是检查数据，要检查你的方法输入的所有数据，一方面是为了安全性，另一方面是为了可用性
+  4. 部署前需要压缩JavaScript文件
+  5. 在方法顶端定义所有变量，在大部分情况下var语句应该为方法体内的第一个语句
+  6. 尽量少使用全局变量，隐式的全局变量应该从来不使用，同时也应尽量避免全局函数的使用
+  7. 代码结构应该提供最好的可读性
+  8. 谨慎使用逗号操作符，一般包括在for语句的控制部分的、对象字面量、数组字面量、var语句和参数列表
+  9. 不要在if和while语句块中对条件部分赋值
+  10. 避免与null进行比较
+  11. 始终使用===和!==操作符会更好，==和!=操作符会做类型强制转换
+  12. 不要使用===来和假值做比较，if(obj)一般都可以达到目的
+  13. 注意不要在+后面跟+或++。这种模式令人混淆
+  14. eval方法是JavaScript里最易滥用的特性。除非解析JSON数据，否则不要使用它
+  15. 为了避免混乱，在HTML中使用双引号，在JavaScript中使用单引号
+  16. 不要为了偷懒而省略引号和{}
+  17. 当需要缓存this时需要使用self变量（也可以是其他变量，例如obj、widget等）进行缓存
+  18. 如果针对的是不断运行的代码，不应该使用setTimeout，而应该是用setInterval，因为setTimeout每一次都会初始化一个定时器，而setInterval只会在开始的时候初始化一个定时器
+  19. 删除dom节点之前，一定要删除注册在该节点上的事件，否则将会产生无法回收的内存。另外，在removeChild和innerHTML = ''二者之间，尽量选择后者，因为前者无法有效地释放dom节点
+  20. 在JavaScript中，我们可以使用for(;;)、while()、for(in)三种循环，事实上，这三种循环中for(in)的效率极差，尽量使用for(;;)循环和while()循环，其中while()循环效率最好
 
 *本规范文档将不断修改更新，请各位批评指正*
