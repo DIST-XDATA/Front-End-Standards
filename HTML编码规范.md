@@ -589,142 +589,366 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 
 ### 4.10 script标签
 
-    <script>标签用于定义客户端脚本，比如JavaScript。<script>标签既可包含脚本语句，也可以通过"src"属性指向外部脚本文件。JavaScript通常用于图像操作、表单验证以及动态内容更改
-    如果使用"src"属性，则<script>标签必须是空的
-    有多种执行外部脚本的方法，如下所示
-    - 如果async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
-    - 如果不使用async且defer="defer"：脚本将在页面完成解析时执行
-    - 如果既不使用async也不使用defer：在浏览器继续解析页面之前，立即读取并执行脚本
-### 4.11-body标签
+**[强制]script>标签用于定义客户端脚本，比如JavaScript。script标签既可包含脚本语句，也可以通过"src"属性指向外部脚本文件。JavaScript通常用于图像操作、表单验证以及动态内容更改**  
+示例：      
+```javascript
+<script type="text/javascript">
+  document.write("Hello World!")
+</script>
+```      
+**[强制]如果使用"src"属性，则script标签必须是空的**  
+**[建议]有多种执行外部脚本的方法，如下所示**  
+- 如果async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+- 如果不使用async且defer="defer"：脚本将在页面完成解析时执行
+- 如果既不使用async也不使用defer：在浏览器继续解析页面之前，立即读取并执行脚本  
 
-    <body>标签定义文档的主体，包含文档的所有内容（比如文本、超链接、图像、表格和列表等等）
-### 4.12-h1-h6标签
+### 4.11 body标签
 
-    用来定义HTML标题，<h1>定义重要等级最高的标题。<h6>定义重要等级最低的标题
-    如果是博客，应把<h1>标签留给文章标题
-### 4.13-p标签
+**[强制]body标签定义文档的主体，包含文档的所有内容（比如文本、超链接、图像、表格和列表等等）**  
+示例：      
+```javascript
+<html>
+  <head>
+    <title>文档的标题</title>
+  </head>
+  <body>
+    文档的内容
+  </body>
+</html>
+```      
 
-    用于定义段落，<p>标签会自动在其前后创建一些空白。浏览器会自动添加这些空间，用户也可以在样式表中规定
-### 4.14-form标签
+### 4.12 h1-h6标签
 
-    <form>标签用于创建供用户输入的HTML表单，该标签可以包含一个或多个如下的表单元素：<input>、<textarea>、<button>、<select>、<option>、<optgroup>、<fieldset>、<label>
-### 4.15-input标签
+**[强制]用来定义HTML标题，h1定义重要等级最高的标题，h6定义重要等级最低的标题**  
+**[强制]由于h元素拥有确切的语义，要慎重地选择恰当的标签层级来构建文档的结构。因此，不要利用标题标签来改变同一行中的字体大小。应当使用层叠样式表定义来达到漂亮的显示效果**  
+**[建议]如果是博客，应把h1标签留给文章标题**  
+示例：      
+```javascript
+<h1>这是标题 1</h1>
+<h2>这是标题 2</h2>
+<h3>这是标题 3</h3>
+<h4>这是标题 4</h4>
+<h5>这是标题 5</h5>
+<h6>这是标题 6</h6>
+```      
 
-    <input>标签规定了用户可以在其中输入数据的输入字段，该标签在<form>标签中使用，用来声明允许用户输入数据的input控件，输入字段可通过多种方式改变，取决于 type 属性
-### 4.16-textarea标签
+### 4.13 p标签
 
-    <textarea>标签定义一个多行的文本输入控件，文本区域中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是Courier）。可以通过cols和rows属性来规定textarea的尺寸大小，不过更好的办法是使用CSS的height和width属性
-### 4.17-button标签
+**[强制]用于定义段落，p标签会自动在其前后创建一些空白。浏览器会自动添加这些空间，用户也可以在样式表中规定**  
+示例：      
+```javascript
+<p>这是一个很短的行</p>
+```      
 
-    <button>标签定义一个按钮，该标签内部，用户可以放置内容，比如文本或图像。这是该标签与使用<input>标签创建的按钮之间的不同之处
-    提示：应始终为button标签规定type属性，不同的浏览器<button>标签的type属性使用不同的默认值
-### 4.18-select标签
+### 4.14 form标签
 
-    <select>标签用来创建下拉列表，<select>标签中的<option>标签定义了列表中的可用选项
-### 4.19-label标签
+**[强制]form标签用于创建供用户输入的HTML表单，也可用于向服务器传输数据。该标签可以包含一个或多个如下的表单元素：input、textarea、button、select、option、optgroup、fieldset、label标签**  
+示例：      
+```javascript
+<form action="form_action.asp" method="get">
+  <p>First name: <input type="text" name="fname"></p>
+  <p>Last name: <input type="text" name="lname"></p>
+  <input type="submit" value="Submit">
+</form>
+```      
 
-    <label>标签为<input>标签定义标注（标记），<label>标签不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果用户在<label>标签内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上
-    <label>标签的for属性应当与相关元素的id属性相同
-### 4.20-img标签
+### 4.15 input标签
 
-    <img>标签定义HTML页面中的图像，有两个必需的属性：src和alt
-    从技术上讲，图像并不会插入HTML页面中，而是链接到HTML页面上。<img>标签的作用是为被引用的图像创建占位符
-    提示：通过在<a>标签中嵌套<img>标签，给图像添加到另一个文档的链接
-### 4.21-canvas标签
+**[强制]input标签规定了用户可以在其中输入数据的输入字段，该标签在form标签中使用，用来声明允许用户输入数据的input控件，输入字段可通过多种方式改变，取决于type属性**  
+示例：      
+```javascript
+<form action="form_action.asp" method="get">
+  <!--文本域-->
+  First name: <input type="text" name="fname">
+  Last name: <input type="text" name="lname">
+  <!--密码域-->
+  <input type="password" name="password">
+  <!--复选框-->
+  <input type="checkbox" name="checkbox1">
+  <!--单选按钮-->
+  <input type="radio" name="radio1">
+  <!--按钮-->
+  <input type="button" value="Hello world ">
+  <!--上传文件-->
+  <input type="button" value="Hello world ">
+  <!--提交表单按钮-->
+  <input type="submit" value="Submit">
+</form>
+```      
 
-    <canvas>标签通过脚本（通常是JavaScript）来绘制图形（比如图表和其他图像），<canvas>标签只是图形容器，用户必须使用脚本来绘制图形
-### 4.22-a标签
+### 4.16 textarea标签
 
-    <a>标签定义超链接，用于从一个页面链接到另一个页面。<a>标签最重要的属性是href属性，它指定链接的目标
-    在所有浏览器中，链接的默认外观如下：
-    - 未被访问的链接带有下划线而且是蓝色的
-    - 已被访问的链接带有下划线而且是紫色的
-    - 活动链接带有下划线而且是红色的
-### 4.23-ul标签
+**[强制]textarea标签定义一个多行的文本输入控件，文本区域中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是Courier）。可以通过cols和rows属性来规定textarea的尺寸大小，不过更好的办法是使用CSS的height和width属性**  
+示例：      
+```javascript
+<textarea rows="3" cols="20">
+  在这里，你可找到你所需要的HTML标准
+</textarea>
+<textarea style = "width: 100px; height: 100px;">
+  在这里，你可找到你所需要的HTML标准
+</textarea>
+```      
+**[建议]在文本输入区内的文本行间，用"%OD%OA"（回车/换行）进行分隔**  
 
-    <ul>标签定义无序列表，<ul>标签与<li>标签一起使用，创建无序列表
-### 4.24-ol标签
+### 4.17 button标签
 
-    <ol>标签定义了一个有序列表，列表排序以数字来显示。<ul>标签与<li>标签一起使用，定义列表选项
-### 4.25-li标签
+**[强制]button标签定义一个按钮，该标签内部，用户可以放置内容，比如文本或图像。这是该标签与使用input标签创建的按钮之间的不同之处**  
+**[强制]始终为button标签规定type属性，不同的浏览器button标签的type属性使用不同的默认值，Internet Explorer的默认类型是"button"，而其他浏览器中（包括W3C规范）的默认值是"submit"**  
+示例：      
+```javascript
+<button type = "button">我可以被点击</button>
+```      
 
-    <li>标签定义列表项目，<li>标签可用在有序列表（<ol>）、无序列表（<ul>）和菜单列表（<menu>）中
-### 4.26-div标签
+### 4.18 select标签
 
-    <div>标签定义HTML文档中的一个分隔区块或者一个区域部分，<div>标签常用于组合块级元素，以便通过CSS来对这些元素进行格式化
-    默认情况下，浏览器通常会在<div>标签前后放置一个换行符。然而，用户可以通过使用CSS改变这种情况
-### 4.27-span标签
+**[强制]select标签用来创建下拉列表，select标签中的option标签定义了列表中的可用选项**  
+示例：      
+```javascript
+<select>
+  <option value ="volvo">Volvo</option>
+  <option value ="saab">Saab</option>
+  <option value="opel">Opel</option>
+  <option value="audi">Audi</option>
+</select>
+```      
 
-    <span>标签用于对文档中的行内元素进行组合。<span>标签没有固定的格式表现。当对它应用样式时，它才会产生视觉上的变化。如果不对<span>应用样式，那么<span>元素中的文本与其他文本不会任何视觉上的差异
-    <span>标签提供了一种将文本的一部分或者文档的一部分独立出来的方式
-### 4.28-table标签
+### 4.19 label标签
 
-    若设计的界面可以用HTML+CSS实现，则尽量不要使用<table>标签，若一定要使用<table>标签，则在此对其进行相应的说明
-    <table>标签定义HTML表格，一个HTML表格包括<table>标签，一个或多个<tr>、<th>以及<td>标签
-    <tr>标签定义表格行，<th>标签定义表头，<td>标签定义表格单元。更复杂的HTML表格也可能包括<caption>、<col>、<colgroup>、<thead>、<tfoot>以及<tbody>标签
-#### 4.28.1-table标签使用规范
+**[强制]label标签为input标签定义标注（标记），label标签不会向用户呈现任何特殊效果。不过，它为鼠标用户改进了可用性。如果用户在label标签内点击文本，就会触发此控件。就是说，当用户选择该标签时，浏览器就会自动将焦点转到和标签相关的表单控件上**  
+**[建议]label标签的for属性应当与相关元素的id属性相同，for属性可把label绑定到另外一个元素**  
+示例：      
+```javascript
+<!--带有两个输入字段和相关标记的简单HTML表单-->
+<form>
+  <label for = "male">Male</label>
+  <input type = "radio" name = "sex" id = "male">
+  <br>
+  <label for = "female">Female</label>
+  <input type = "radio" name = "sex" id = "female">
+</form>
+```      
 
-    1. 尽量不使用百分比进行宽高控制
-    2. table尽量横切，便于加快下载速度
-    3. table位置说明，这里所说的table位置是指表格位于页面左、中、右，一般不指上、中、下。table居左：<table align=left>，由于缺省值是居左，所以这里的align=left可以不写；table居中：<table align=center>，不要写成<center>表格</center>；table居右：<table align=right>
-    4. table缩进，应尽量避免表格嵌套过多的情况发生，对于不可避免的表格嵌套，应以以下方法写，每级table以一个TAB缩进，属于本级table下的<tr>、<td>应对齐本级<table>标签
-    5. 定义表格宽、高，一般简单的定义表格的宽高，就在<table>、<tr>或<td>里面定义width和height属性值就可以了，有一些技巧，如下所示
-    - 同列表格的宽：同列表格如果宽度一样，只写第一行定义的宽度，其他的允许不写
-    - 同行表格的高：同行表格如果高一样，则把height属性写入<tr>中，<td>内部需要做单独定义，另外其他同行相同的定义，如背景颜色等，均可写入<tr>
----
-## 5.其他规范
+### 4.20 img标签
 
-    - _开发中随时进行标准验证_
-    - _压缩前端代码_
-    - 书写链接时，建议在URL地址后面加上“/”，例如：href="http://.../.../"
-    - 不属于标签部分的特殊符号都用编码表示，出现在内容中的特殊符号都需要用编码形式表现出来，例如："<"用&lt表示，">"用&gt表示，"&"用&amp表示，"用&quot表示，尽量用&nbsp;表示空格
-    - body中必须标明background-color属性，无背景色时赋值#fff
-    - 对16进制数的标识一定要加"#"
-    - 禁止在字符串尾部加空格方式控制屏幕位置
-    - 字体字号需要规范使用，突出主次层级
----
-## 6.补充说明
+**[强制]img>标签定义HTML页面中的图像，有两个必需的属性：src和alt，从技术上讲，图像并不会插入HTML页面中，而是链接到HTML页面上。img标签的作用是为被引用的图像创建占位符**  
+示例：      
+```javascript
+<img src = "dist.jpg" alt = "上海数慧系统技术有限公司">
+```      
+**[建议]通过在a标签中嵌套img标签，给图像添加到另一个文档的链接**  
 
-### 6.1-IE兼容说明
+### 4.21 canvas标签
 
-    - 优先使用最新版本的IE和Chrome内容
-    - 使用代码<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    - 如果CSS样式表基本定型，那么可以为IE单独建立一个样式表，然后仅对IE生效，例如：<!--[if it IE 7]><link rel="stylesheet" type="text/css" media="screen" href="path/to/ie.css/"/><![end if]-->
-### 6.2-SEO优化
+**[强制]canvas标签通过脚本（通常是JavaScript）来绘制图形（比如图表和其他图像），canvas标签只是图形容器，用户必须使用脚本来绘制图形**  
+示例：      
+```javascript
+<!--通过 canvas 元素来显示一个红色的矩形-->
+<canvas id = "myCanvas"></canvas>
+<script type = "text/javascript">
+  var canvas = document.getElementById('myCanvas');
+  var ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#FF0000';
+  ctx.fillRect(0, 0, 80, 100);
+</script>
+```      
+**[建议]Internet Explorer 8以及更早的版本不支持canvas标签**  
 
-    SEO：是由英文Search Engine Optimization缩写而来，中文译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，比如网站站外推广、网站品牌建设等，使网站满足搜索引擎收录排名需求，在搜索引擎中提高关键词排名
-    <head>  
-        <meta charset="utf-8">
-        <!-- 兼容IE -->
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
-        <!-- SEO优化 -->  
-        <title>Style Guide</title>  
-        <meta name="keywords" content="your keywords">  
-        <meta name="description" content="your description">  
-        <meta name="author" content="author,email address">  
-    </head>  
-### 6.3-viewport（移动端）
+### 4.22 a标签
 
-    - viewport：一般指的是浏览器窗口内容区的大小，不包含工具条、选项卡等内容
-    - width：浏览器宽度，输出设备中的页面可见区域宽度
-    - device-width：设备分辨率宽度，输出设备的屏幕可见宽度
-    - initial-scale：初始缩放比例
-    - maximum-scale：最大缩放比例
-    - 例如，为移动端设备优化，设置可见区域的宽度和初始缩放比例：<meta name="viewport" content="width=device-width, initial-scale=1.0">
+**[强制]a标签定义超链接，用于从一个页面链接到另一个页面。a标签最重要的属性是href属性，它指定链接的目标**  
+示例：      
+```javascript
+<a href = "http://www.dist.com.cn">上海数慧系统技术有限公司</a>
+```      
+**[强制]如果不使用href属性，则不可以使用如下属性：download, hreflang, media, rel, target以及type属性**  
+**[强制]被链接页面通常显示在当前浏览器窗口中，除非规定了另一个目标（target属性）**  
+**[强制]在所有浏览器中，链接的默认外观如下**  
+- 未被访问的链接带有下划线而且是蓝色的
+- 已被访问的链接带有下划线而且是紫色的
+- 活动链接带有下划线而且是红色的  
+**[建议]使用CSS来设置链接的样式**  
+
+### 4.23 ul标签
+
+**[强制]ul标签定义无序列表，ul标签与li标签一起使用，创建无序列表**  
+示例：      
+```javascript
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```      
+
+### 4.24 ol标签
+
+**[强制]ol标签定义了一个有序列表，列表排序以数字来显示。ul标签与li标签一起使用，定义列表选项**  
+示例：      
+```javascript
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+```      
+
+### 4.25 li标签
+
+**[强制]li标签定义列表项目，li标签可用在有序列表ol标签、无序列表ul标签和菜单列表menu标签中**  
+示例：      
+```javascript
+<!--ol标签和li标签-->
+<ol>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ol>
+<!--ul标签和li标签-->
+<ul>
+  <li>Coffee</li>
+  <li>Tea</li>
+  <li>Milk</li>
+</ul>
+```      
+
+### 4.26 div标签
+
+**[强制]div标签定义HTML文档中的一个分隔区块或者一个区域部分，div标签常用于组合块级元素，以便通过CSS来对这些元素进行格式化。如果如果用id或class来标记div标签，那么该标签的作用会变得更加有效。默认情况下，浏览器通常会在div标签前后放置一个换行符，然而，用户可以通过使用CSS改变这种情况**    
+示例：      
+```javascript
+<div class = "content-head">
+  <h3>这是标题</h3>
+  <p>这是一行</p>
+</div>
+```      
+
+### 4.27 span标签
+
+**[强制]span标签用于对文档中的行内元素进行组合。span标签没有固定的格式表现。当对它应用样式时，它才会产生视觉上的变化。如果不对span标签应用样式，那么span元素中的文本与其他文本不会任何视觉上的差异，span标签提供了一种将文本的一部分或者文档的一部分独立出来的方式**  
+示例：      
+```javascript
+<p><span>some text</span>some other text</p>
+<!--例子解释：
+如果不对span元素应用样式，那么span元素中的文本与其他文本不会任何视觉上的差异。尽管如此，上例中的span元素仍然为p元素增加了额外的结构。可以为span应用id或class属性，这样既可以增加适当的语义，又便于对span元素应用样式。可以对同一个span元素应用class或id属性，但是更常见的情况是只应用其中一种。这两者的主要差异是，class用于元素组（类似的元素，或者可以理解为某一类元素），而id用于标识单独的唯一的元素
+-->
+```      
+
+### 4.28 table标签
+
+**[强制]若设计的界面可以用HTML+CSS实现，则尽量不要使用table标签**  
+**[强制]table标签定义HTML表格，一个HTML表格包括table标签，一个或多个tr、th以及td标签**  
+**[强制]tr标签定义表格行，th标签定义表头，td标签定义表格单元。更复杂的HTML表格也可能包括caption、col、colgroup、thead、tfoot以及tbody标签**  
+示例：      
+```javascript
+<table>
+  <tr>
+    <th>月份</th>
+    <th>金额</th>
+  </tr>
+  <tr>
+    <td>一月</td>
+    <td>100块</td>
+  </tr>
+</table>
+```      
+
+#### 4.28.1 table标签使用规范
+
+**[建议]尽量不使用百分比进行宽高控制**  
+**[建议]table尽量横切，便于加快下载速度**  
+**[建议]table位置说明，这里所说的table位置是指表格位于页面左、中、右，一般不指上、中、下**  
+示例：      
+```javascript
+<!--table居左，由于缺省值是居左，所以这里的align = left可以不写-->
+<table align = left>
+<!--table居中-->
+<table align = center>
+<!--table居右-->
+<table align = right>
+```      
+**[建议]table缩进，应尽量避免表格嵌套过多的情况发生，对于不可避免的表格嵌套，应以以下方法写，每级table以4个空格或1个TAB缩进，属于本级table下的tr、td标签应对齐本级table标签**  
+**[建议]定义表格宽、高，一般简单的定义表格的宽高，就在table、tr或td标签里面定义width和height属性值就可以了，有一些技巧，如下所示**  
+- 同列表格的宽：同列表格如果宽度一样，只写第一行定义的宽度，其他的允许不写
+- 同行表格的高：同行表格如果高一样，则把height属性写入tr标签中，td标签内部需要做单独定义，另外其他同行相同的定义，如背景颜色等，均可写入tr标签  
+
+## 5 其他规范
+
+以下规范内容均为**[强制]**  
+1. **开发中随时进行标准验证**
+2. **压缩前端代码**
+3. 书写链接时，建议在URL地址后面加上'/'，例如：href = "http://.../.../"
+4. 不属于标签部分的特殊符号都用编码表示，出现在内容中的特殊符号都需要用编码形式表现出来，例如："<"用&lt表示，">"用&gt表示，"&"用&amp表示，"用&quot表示，尽量用&nbsp;表示空格
+5. body中必须标明background-color属性，无背景色时赋值#fff
+6. 对16进制数的标识一定要加"#"
+7. 禁止在字符串尾部加空格方式控制屏幕位置
+8. 字体字号需要规范使用，突出主次层级
+
+## 6 补充说明
+
+### 6.1 IE兼容说明
+
+**[建议]优先使用最新版本的IE和Chrome内核**  
+**[建议]使用如下所示的代码**  
+示例：      
+```javascript
+<meta http-equiv = "X-UA-Compatible" content = "IE = edge, chrome = 1">
+```      
+**[建议]如果CSS样式表基本定型，那么可以为IE单独建立一个样式表，然后仅对IE生效**  
+示例：      
+```javascript
+<!--[if it IE 7]>
+  <link rel = "stylesheet" type = "text/css" media = "screen" href = "path/to/ie.css/"/>
+<![end if]-->
+```      
+
+### 6.2 SEO优化
+
+**[建议]SEO：是由英文Search Engine Optimization缩写而来，中文译为"搜索引擎优化"。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，比如网站站外推广、网站品牌建设等，使网站满足搜索引擎收录排名需求，在搜索引擎中提高关键词排名**  
+示例：      
+```javascript
+<head>  
+  <meta charset="utf-8">
+  <!-- 兼容IE -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+  <!-- SEO优化 -->  
+  <title>Style Guide</title>  
+  <meta name="keywords" content="your keywords">  
+  <meta name="description" content="your description">  
+  <meta name="author" content="author,email address">  
+</head>  
+```      
+
+### 6.3 viewport（移动端）
+
+以下规范内容均为**[建议]**  
+1. viewport：一般指的是浏览器窗口内容区的大小，不包含工具条、选项卡等内容
+2. width：浏览器宽度，输出设备中的页面可见区域宽度
+3. device-width：设备分辨率宽度，输出设备的屏幕可见宽度
+4. initial-scale：初始缩放比例
+5. maximum-scale：最大缩放比例  
+示例：      
+```javascript
+<!--为移动端设备优化，设置可见区域的宽度和初始缩放比例-->
+<meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+```      
+
 ### 6.4-IOS图标（移动端）
 
-    - apple-touch-icon：图片自动处理成圆角和高光等效果
-    - apple-touch-icon-precomposed：禁止系统自动添加效果，直接显示设计原图
-    - 例子如下所示  
-    <!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png">
-    <!-- iPad，72x72 像素，可以没有，但推荐有 -->
-    <link rel="apple-touch-icon-precomposed"     href="/apple-touch-icon-72x72-precomposed.png" sizes="72x72">
-    <!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->  
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-114x114-precomposed.png" sizes="114x114">
-    <!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
-    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-144x144-precomposed.png" sizes="144x144">
----
+以下规范内容均为**[建议]**  
+1. apple-touch-icon：图片自动处理成圆角和高光等效果
+2. apple-touch-icon-precomposed：禁止系统自动添加效果，直接显示设计原图  
+示例：      
+```javascript
+<!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
+<link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-57x57-precomposed.png">
+<!-- iPad，72x72 像素，可以没有，但推荐有 -->
+<link rel = "apple-touch-icon-precomposed"     href = "/apple-touch-icon-72x72-precomposed.png" sizes = "72x72">
+<!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->  
+<link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-114x114-precomposed.png" sizes = "114x114">
+<!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
+<link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-144x144-precomposed.png" sizes = "144x144">
+```      
+
 *本规范文档将不断修改更新，请各位批评指正*
 
 [HTML_image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png
