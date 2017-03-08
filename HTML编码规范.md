@@ -38,7 +38,7 @@
 
 **[建议]html、css、js、images、fonts等文件目录组织如下所示**  
 
-![][HTML-image1]
+![文件目录组织](https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png)
 
 **[强制]文件命名原则**  
 所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css  
@@ -521,11 +521,11 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[建议]标签的属性有两种**  
 - name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示    
 
-![][HTML-image2]
+![name和content属性](https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png)
 
 - http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示    
 
-![][HTML-image3]
+![http-equiv与content属性](https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png)
 
 ### 4.7 title标签
 
@@ -960,7 +960,4 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-144x144-precomposed.png" sizes = "144x144">
 ```      
 
-*本规范文档将不断修改更新，请各位批评指正*  
-[HTML-image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png  
-[HTML-image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png  
-[HTML-image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png  
+*本规范文档将不断修改更新，请各位批评指正*
