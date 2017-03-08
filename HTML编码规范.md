@@ -36,9 +36,9 @@
 
 ## 2 文件规范
 
-**[建议]html、css、js、images、fonts等文件目录组织如下所示**    
+**[建议]html、css、js、images、fonts等文件目录组织如下所示**  
 
-![][HTML_image1]
+![][HTML-image1]
 
 **[强制]文件命名原则**  
 所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css  
@@ -127,7 +127,7 @@
 </div>
 ```  
 
-### 3.1 缩进与换行
+### 3.2 缩进与换行
 
 **[强制]使用4个空格或一个TAB作为一个缩进层级**  
 反例：      
@@ -144,7 +144,7 @@
 ```      
 **[强制]模版代码的缩进优先保证HTML代码的缩进规则**      
 
-### 3.2 命名规则
+### 3.3 命名规则
 
 **[强制]class的命名必须单词全字母小写，单词间以-分隔，且必须代表相应的模块或部件的内容或功能，不得以HTML内置样式进行命名，命名应该具有明确的语义，同时避免创建无样式信息的class**      
 反例：      
@@ -168,9 +168,9 @@
 <div id = "content-body"></div>
 ```  
 
-### 3.3 标签
+### 3.4 标签
 
-#### 3.3.1 标签出现顺序
+#### 3.4.1 标签出现顺序
 
 **[强制]标签出现的顺序如下所示**      
 示例：      
@@ -186,7 +186,7 @@
 ②</html>  
 ```  
 
-#### 3.3.2 标签书写规范
+#### 3.4.2 标签书写规范
 
 该部分只对标签书写进行规范说明，以下规则均为**[强制]**  
 1. HTML中的标签必须使用小写字母  
@@ -196,25 +196,25 @@
 5. 在CSS可以实现相同需求的情况下尽量不要使用表格进行布局  
 6. 应尽量减少标签的数量，通过迭代和重构可以达到该要求  
 
-#### 3.3.3 标签嵌套规则
+#### 3.4.3 标签嵌套规则
 
 a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区别的约束还有严格嵌套约束，例如：a标签不允许嵌套a标签。严格嵌套约束在所有的浏览器下都不被允许，而语义嵌套约束，浏览器大多会容错处理，生成的文档树可能相互不太一样  
 
-##### 3.3.3.1 语义嵌套约束
+##### 3.4.3.1 语义嵌套约束
 
 以下规则均为**[强制]**  
 1. li标签用于ul标签或ol标签下  
 2. dd标签、dt标签用于dl标签下  
 3. thead标签、tbody标签、tfoot标签、tr标签、td标签用于table标签下  
 
-##### 3.3.3.2 严格嵌套约束
+##### 3.4.3.2 严格嵌套约束
 
 以下规则均为**[强制]**  
 1. inline-level元素，仅可以包含文本或其他inline-level元素  
 2. a标签里不可以嵌套交互式元素a标签、button标签、select标签等  
 3. p标签里不可以嵌套块级元素div标签、h1-h6标签、p标签、ul标签、ol标签、li标签、dl标签、dt标签、dd标签、form标签等  
 
-##### 3.3.3.3 基本标签嵌套规则
+##### 3.4.3.3 基本标签嵌套规则
 
 以下规则均为**[强制]**  
 1. body标签可以直接包含块状元素、ins标签、del标签、script标签不可以直接包含行内元素  
@@ -224,7 +224,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 5. form元素不能够直接包含input元素，因为input元素属于行内元素，form元素仅仅能够包含块状元素  
 6. table元素只能够包含caption、colgroup、col、thead、tbody、tfoot元素，不能够直接包含tr元素或其他任何元素  
 
-##### 3.3.3.4 其他嵌套规则
+##### 3.4.3.4 其他嵌套规则
 
 **[强制]所有元素必须正确嵌套**  
 - 不允许交叉  
@@ -274,7 +274,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 </div>
 ```  
 
-### 3.4 属性
+### 3.5 属性
 
 **[强制]属性出现的顺序：class、id、name、data-xxx、src、for、type、href、title、alt、aria-xxx、role，以此保证属性的易读性**      
 **[强制]属性必须使用小写字母，其属性值必须用双引号包围**      
@@ -282,14 +282,14 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[建议]不要在HTML标签中嵌入使用CSS样式，这是一种很山寨的做法，同时不便于样式的管理**      
 **[建议]为所有元素定义样式（class属性）**     
 
-### 3.5 页面头部
+### 3.6 页面头部
 
-#### 3.5.1 DOCTYPE
+#### 3.6.1 DOCTYPE
 
 **[强制]DOCTYPE即文档声明，若是没有写文档声明，则会出现怪异解析。为每个HTML页面的第一行添加声明，这样能够确保在每个浏览器中拥有一致的表现**      
 **[强制]使用DOCTYPE来启用标准模式，使用大写的DOCTYPE**      
 
-#### 3.5.2 语言编码
+#### 3.6.2 语言编码
 
 **[强制]有助于提高页面的可访问性，必须设置正确的lang属性**  
 示例：      
@@ -302,7 +302,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <meta charset = "UTF-8">
 ```      
 
-#### 3.5.3 CSS和JavaScript引入
+#### 3.6.3 CSS和JavaScript引入
 
 **[强制]引入CSS时必须指明rel="stylesheet"**      
 示例：      
@@ -313,7 +313,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[建议]CSS文件外链至head标签之间，这样可以加快网页加载速度，因为这样可以使网页逐步渲染**  
 **[建议]JavaScript代码必须放在页面末尾或采用异步加载，因为当加载一个脚本时，页面会暂停加载，直到脚本完全载入，因此会浪费用户很多时间**      
 
-#### 3.5.4 Head内容
+#### 3.6.4 Head内容
 
 **[强制]title标签必须设置为head标签的直接子元素，并紧随charset声明之后**      
 **[强制]所有页面必须注明title名称**      
@@ -327,15 +327,15 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <link rel = "shortcut icon" href = "path/to/favicon.ico">
 ```      
 
-### 3.6 图片
+### 3.7 图片
 
 **[强制]为所有的图片加上alt属性这样可以让禁用图片或者使用特殊设备的用户无障碍了解你的网页信息，并且对图像搜索引擎友好。如只起装饰作用而没有任何意义的图片可设置alt属性值为空**      
 **[强制]所有图形均要标注width及height属性（防止图片变形）**      
 **[强制]禁止img标签的src取值为空，延迟加载的图片也要增加默认的src属性值**      
 
-### 3.7 表单
+### 3.8 表单
 
-#### 3.7.1 控件标题
+#### 3.8.1 控件标题
 
 **[强制]文本标题的控件必须使用label标签将其与其标题相关联，有两种方式**      
 - 将控件置于label内
@@ -348,7 +348,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <label>用户：</label><input type = "text" name = "user" id = "user">
 ```      
 
-#### 3.7.2 按钮
+#### 3.8.2 按钮
 
 **[强制]使用button元素或input元素时必须指明type属性值，能获得更友好的输入体验**  
 示例：      
@@ -357,7 +357,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <input type = "date">
 ```      
 
-#### 3.7.3 可访问性
+#### 3.8.3 可访问性
 
 **[建议]当使用JavaScript进行表单提交时，应使原生提交功能正常工作。当浏览器JS运行错误或关闭JS时，提交功能将无法工作。如果正确指定了form元素的action属性和表单控件的name属性时，提交仍可继续进行**  
 示例：      
@@ -368,7 +368,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 </form>
 ```      
 
-#### 3.7.4 其他事项
+#### 3.8.4 其他事项
 
 **[建议]尽量不要使用按钮类元素的name属性，由于浏览器兼容性问题，使用按钮的name属性会带来许多难以发现的问题**      
 **[建议]负责主要功能的按钮在DOM中的顺序应该靠前，以提高可访问性。如果在CSS中指定了float: right则可能导致视觉上主按钮在前，而DOM中主按钮靠后的情况**      
@@ -401,7 +401,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 </div>
 ```      
 
-### 3.8 多媒体
+### 3.9 多媒体
 
 **[强制]使用audio以及video标签来播放音频、视频时，应当注意格式。音频格式：MP3、WAV、Ogg，MP4、WebM、Ogg**      
 
@@ -521,11 +521,11 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[建议]标签的属性有两种**  
 - name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示    
 
-![name和content属性][HTML_image2]
+![][HTML-image2]
 
 - http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示    
 
-![http-equiv和content属性][HTML_image3]
+![][HTML-image3]
 
 ### 4.7 title标签
 
@@ -960,8 +960,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-144x144-precomposed.png" sizes = "144x144">
 ```      
 
-*本规范文档将不断修改更新，请各位批评指正*    
+*本规范文档将不断修改更新，请各位批评指正*  
 
-[HTML_image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png  
-[HTML_image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png  
-[HTML_image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png  
+[HTML-image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png
+[HTML-image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png
+[HTML-image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png
