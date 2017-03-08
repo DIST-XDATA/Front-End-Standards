@@ -950,18 +950,17 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 
 示例：      
 ```javascript
-<!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
+<!--iPhone和iTouch，默认57像素，必须有-->
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-57x57-precomposed.png">
-<!-- iPad，72x72 像素，可以没有，但推荐有 -->
+<!--iPad，72像素，可以没有，但推荐有-->
 <link rel = "apple-touch-icon-precomposed"     href = "/apple-touch-icon-72x72-precomposed.png" sizes = "72x72">
-<!-- Retina iPhone 和 Retina iTouch，114x114 像素，可以没有，但推荐有 -->  
+<!--Retina iPhone和Retina iTouch，114像素，可以没有，但推荐有-->  
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-114x114-precomposed.png" sizes = "114x114">
-<!-- Retina iPad，144x144 像素，可以没有，但推荐有 -->
+<!--Retina iPad，144像素，可以没有，但推荐有-->
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-144x144-precomposed.png" sizes = "144x144">
 ```      
 
 *本规范文档将不断修改更新，请各位批评指正*  
-
-[HTML-image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png
-[HTML-image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png
-[HTML-image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png
+[HTML-image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png  
+[HTML-image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png  
+[HTML-image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png  
