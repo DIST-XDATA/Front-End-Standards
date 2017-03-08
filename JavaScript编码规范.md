@@ -174,7 +174,7 @@ function funcName(accountElement){
   // ...
 }
 ```  
-**[强制]类的方法/属性，必须采用camel命名法**    
+**[强制]类的方法/属性，必须采用camel命名法**      
 示例：    
 ```javascript
 // TestClass为一个类
@@ -183,7 +183,7 @@ function TestClass(valueOne, valueTwo){
   this.testValueTwo = valueTwo;
 }
 ```
-**[强制]私有（保护）成员，必须以下划线开头，且必须采用camel命名法**    
+**[强制]私有（保护）成员，必须以下划线开头，且必须采用camel命名法**      
 反例：    
 ```javascript
 Element
@@ -198,7 +198,7 @@ _element
 _accountElement
 _setValue()
 ```
-**[强制]常量名，必须使用全部大写的下划线命名法**    
+**[强制]常量名，必须使用全部大写的下划线命名法**      
 反例：    
 ```javascript
 isDebugEnabled
@@ -312,7 +312,7 @@ var mouseEventHandler = null;
 **[强制]复数必须有其公共的名称约定**    
 **[强制]补充用语必须使用补充词，例如：get/set、add/remove、create/destroy、start/stop、insert/delete、begin/end等**    
 **[建议]compute作为变量名应为已经计算完成的变量，find作为变量名应为已经查找完成的变量，initialize或者init作为变量应为已经实例化（初始化）完成的类或者其它类型的变量**    
-**[建议]以is开头的变量名应设置为布尔值，同理其开头也可以为has、can、should或者b**    
+**[建议]以is开头的变量名应设置为布尔值，同理其开头也可以为has、can、should或者b**      
 示例：    
 ```javascript
 var isFinished = true;
@@ -379,7 +379,7 @@ var isFound = true;
 
 <h4 id = "3.2.1">3.2.1 空格</h4>
 
-**[强制]二元运算符（除了点、左大括号和左方括号之外）两侧必须有一个空格，一元运算符与操作对象之间不允许有空格（除非操作符是个单词，比如typeof）**    
+**[强制]二元运算符（除了点、左大括号和左方括号之外）两侧必须有一个空格，一元运算符与操作对象之间不允许有空格（除非操作符是个单词，比如typeof）**      
 示例：    
 ```javascript
 var a = !arr.length;
@@ -441,7 +441,7 @@ var obj = {
 	c: 3
 };
 ```    
-**[强制]函数声明、具名函数表达式、函数调用中，函数名和左括号（(）之间不允许有空格**    
+**[强制]函数声明、具名函数表达式、函数调用中，函数名和左括号（(）之间不允许有空格**      
 反例：    
 ```javascript
 function funcName () {
@@ -462,7 +462,7 @@ var funcName = function funcName() {
 }
 funcName();
 ```    
-**[强制]逗号（,）和分号（;）前不允许有空格，如果不位于行尾，逗号（,）和分号（;）后必须跟一个空格**    
+**[强制]逗号（,）和分号（;）前不允许有空格，如果不位于行尾，逗号（,）和分号（;）后必须跟一个空格**      
 反例：    
 ```javascript
 callFunc(a , b);
@@ -518,7 +518,7 @@ var obj3 = {
 };
 ```    
 **[强制]行尾不得有多余的空格**    
-**[强制]函数参数与左括号之间不能有空格，每个参数之间应该用逗号加一个空格隔开**    
+**[强制]函数参数与左括号之间不能有空格，每个参数之间应该用逗号加一个空格隔开**      
 反例：    
 ```javascript
 function funcName( param1,param2 , param3) {
@@ -686,8 +686,8 @@ var strExample = '';
 
 <h4 id="3.4.2">3.4.2 复合语句</h4>
 
-**[强制]复合语句必须被包含在{}（大括号）内**    
-**[强制]被括起的语句必须多缩进4个空格或1个TAB键**    
+**[强制]复合语句必须被包含在{}（大括号）内**      
+**[强制]被括起的语句必须多缩进4个空格或1个TAB键**      
 反例：    
 ```javascript
 if (condition) {
@@ -761,7 +761,7 @@ function funcName() {
 
 <h5 id="3.4.3.2">3.4.3.2 if语句</h5>
 
-**[强制]if语句应如以下格式进行表示**    
+**[强制]if语句应如以下格式进行表示**      
 示例：    
 ```javascript
 if (condition) {
@@ -775,21 +775,21 @@ if (condition) {
 
 <h5 id="3.4.3.3">3.4.3.3 for语句</h5>
 
-**[强制]for语句应如以下格式进行表示**    
+**[强制]for语句应如以下格式进行表示**      
 示例：    
 ```javascript
 for (initialization; condition; update) {
   statements;
 }
 ```    
-**[建议]for循环语句使用技巧，例如如下所示的for循环语句**    
+**[建议]for循环语句使用技巧，例如如下所示的for循环语句**      
 示例：    
 ```javascript
 for (i = 0; i < myArray.length; i++) {
   statements;
 }
 ```    
-**[建议]每次判断i是否达到临界值时都要获取一遍myArray的length属性，这样做影响效率，可以用以下的形式**    
+**[建议]每次判断i是否达到临界值时都要获取一遍myArray的length属性，这样做影响效率，可以用以下的形式**      
 示例：    
 ```javascript
 for (i = 0, max = myArray.length; i < max; i++) {
@@ -799,7 +799,7 @@ for (i = 0, max = myArray.length; i < max; i++) {
 
 <h5 id="3.4.3.4">3.4.3.4 while语句</h5>
 
-**[强制]while语句应如以下格式进行表示**    
+**[强制]while语句应如以下格式进行表示**      
 示例：    
 ```javascript
 while (condition) {
@@ -809,7 +809,7 @@ while (condition) {
 
 <h5 id="3.4.3.5">3.4.3.5 do语句</h5>
 
-**[强制]不像别的复合语句，do语句总是以分号（;）结尾，应如以下格式进行表示**    
+**[强制]不像别的复合语句，do语句总是以分号（;）结尾，应如以下格式进行表示**      
 示例：    
 ```javascript
 do {
@@ -819,7 +819,7 @@ do {
 
 <h5 id="3.4.3.6">3.4.3.6 switch语句</h5>
 
-**[强制]每个case相互对齐，每一组statements（除了default）都应以break、return或者throw结尾，不要让它顺次往下执行，应如以下格式进行表示**    
+**[强制]每个case相互对齐，每一组statements（除了default）都应以break、return或者throw结尾，不要让它顺次往下执行，应如以下格式进行表示**      
 示例：    
 ```javascript
 switch (expression) {
@@ -832,7 +832,7 @@ switch (expression) {
 
 <h5 id="3.4.3.7">3.4.3.7 try语句</h5>
 
-**[强制]try语句应如以下格式进行表示**    
+**[强制]try语句应如以下格式进行表示**      
 示例：    
 ```javascript
 try {
@@ -846,11 +846,11 @@ try {
 
 <h5 id="3.4.3.8">3.4.3.8 width语句</h5>
 
-**[强制]with语句可以用来引用某个特定对象中已有的属性，但不能用来给对象添加属性，要给对象创建新的属性，必须明确地引用该对象。在编写代码中尽量不要使用with语句**    
+**[强制]with语句可以用来引用某个特定对象中已有的属性，但不能用来给对象添加属性，要给对象创建新的属性，必须明确地引用该对象。在编写代码中尽量不要使用with语句**      
 
 <h5 id="3.4.3.9">3.4.3.9 {}和[]</h5>
 
-**[强制]使用{}代替new Object()，使用[]代替new Array()**    
+**[强制]使用{}代替new Object()，使用[]代替new Array()**      
 反例：    
 ```javascript
 var arrayExample = new Array();
@@ -861,28 +861,28 @@ var oExample = new Object();
 var arrayExample = [];
 var oExample = {};
 ```    
-**[建议]当成员是一组有序的数字时使用数组来保存数据，当成员名是无规律的字符串或其他时使用对象来保存数据**    
+**[建议]当成员是一组有序的数字时使用数组来保存数据，当成员名是无规律的字符串或其他时使用对象来保存数据**      
 
 <h4 id="3.4.4">3.4.4 其他事项</h4>
 
 <h5 id="3.4.4.1">3.4.4.1 循环/重复变量规范</h5>
 
-**[强制]如果只对块进行循环控制，则必须使用for循环**    
-**[强制]循环变量应该在循环开始前就被初始化，如使用for循环，则使用for语句初始化循环变量**    
+**[强制]如果只对块进行循环控制，则必须使用for循环**      
+**[强制]循环变量应该在循环开始前就被初始化，如使用for循环，则使用for语句初始化循环变量**      
 示例：    
 ```javascript
 for (var i = 0, j < length; i < j; i++) {
   // statement
 }
 ```    
-**[建议]可以使用do...while语句（但使用时要注意不要出现死循环）**    
-**[建议]可以使用break和continue语句（但要注意二者的区别），应尽量避免使用continue语句，它很容易使程序的逻辑过程晦涩难懂**    
+**[建议]可以使用do...while语句（但使用时要注意不要出现死循环）**      
+**[建议]可以使用break和continue语句（但要注意二者的区别），应尽量避免使用continue语句，它很容易使程序的逻辑过程晦涩难懂**      
 
 <h5 id="3.4.4.2">3.4.4.2 条件表达式</h5>
 
-**[强制]不允许在条件表达式中加入块**    
-**[建议]应该尽量避免复杂的条件表达式，如有必要可以使用临时布尔量**    
-**[建议]在使用if/else进行条件判断时，经常发生的情况应该放在if后面的代码中，而另一种不常发生的情况应放在else后面的代码中**    
+**[强制]不允许在条件表达式中加入块**      
+**[建议]应该尽量避免复杂的条件表达式，如有必要可以使用临时布尔量**      
+**[建议]在使用if/else进行条件判断时，经常发生的情况应该放在if后面的代码中，而另一种不常发生的情况应放在else后面的代码中**      
 示例：    
 ```javascript
 if (condition) {
@@ -896,7 +896,7 @@ if (condition) {
 
 <h4 id="3.5.1">3.5.1 函数命名</h4>
 
-**[强制]函数名的命名规则与变量命名一样，采用驼峰命名规则，首字母需要小写**    
+**[强制]函数名的命名规则与变量命名一样，采用驼峰命名规则，首字母需要小写**      
 反例：    
 ```javascript
 function GetValue {
@@ -912,7 +912,7 @@ function getValue {
   // ...
 }
 ```    
-**[强制]统一使用动词或者动词+名词形式**    
+**[强制]统一使用动词或者动词+名词形式**      
 反例：    
 ```javascript
 function version {
@@ -928,7 +928,7 @@ function setVersion {
   // ...
 }
 ```    
-**[强制]涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词**    
+**[强制]涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词**      
 示例：    
 ```javascript
 function isObject {
@@ -937,14 +937,14 @@ function isObject {
   return isObject;
 }
 ```    
-**[强制]对象方法命名使用对象类名+动词+名词形式**    
+**[强制]对象方法命名使用对象类名+动词+名词形式**      
 示例：    
 ```javascript
 function addressGetEmail {
   // ...
 }
 ```    
-**[强制]某事件响应函数命名方式为触发事件对象名+事件名或者模块名**    
+**[强制]某事件响应函数命名方式为触发事件对象名+事件名或者模块名**      
 示例：    
 ```javascript
 function divClick {
@@ -990,7 +990,7 @@ function addressSubmitButtonClick {
 <h4 id="3.5.3">3.5.3 其他事项</h4>
 
 **[强制]对功能类似的变量名采用统一的命名风格，比如小智中的DocCenter.js和ProjectPkg.js中都有打开文件夹目录的功能函数，可以将其名称统一命名为openFolder()**    
-**[建议]避免无意义的条件判断**    
+**[建议]避免无意义的条件判断**      
 反例：    
 ```javascript
 function createMicrobrewery(name) {
@@ -1105,7 +1105,7 @@ function showList(employees) {
   }
 }
 ```    
-**[建议]采用默认参数精简代码**    
+**[建议]采用默认参数精简代码**      
 反例：    
 ```javascript
 function writeForumComment(subject, body) {
@@ -1364,7 +1364,7 @@ var func = function() {
 	// …
 };
 ```    
-**[强制]空函数不使用new Function()的形式**    
+**[强制]空函数不使用new Function()的形式**      
 示例：    
 ```javascript
 var emptyFunction = function() {};
@@ -1387,7 +1387,8 @@ MyClass.prototype.hooks.after = EMPTY_FUNCTION;
 
 **[建议]当不因为性能原因自己实现数组排序功能的时候，尽量使用数组的sort方法。自己实现的常规排序算法，在性能上并不优于数组默认的sort方法，但以下两种场景可以自己实现排序**  
 - 需要稳定的排序算法，达到严格一致的排序结果  
-- 数据特点鲜明，适合使用桶排  
+- 数据特点鲜明，适合使用桶排      
+
 **[建议]清空数组使用array.length = 0**    
 示例：    
 ```javascript
@@ -1404,7 +1405,8 @@ array.length = 0;
 - 封装了内部逻辑  
 - 在存取时可以方便的增加日志和错误处理  
 - 继承该类时可以重载默认行为  
-- 从服务器获取数据时可以增加懒加载  
+- 从服务器获取数据时可以增加懒加载      
+
 反例：    
 ```javascript
 class BankAccount {
@@ -1466,7 +1468,7 @@ console.log('Employee name: ' + employee.getName());  // Employee name: Manager 
 delete employee.name;
 console.log('Employee name: ' + employee.getName());  // Employee name: Manager Zhang
 ```    
-**[强制]对象创建时，如果一个对象的所有属性均可以不添加引号，所有属性不添加引号；如果任何一个属性需要添加引号，则所有属性建议添加''**    
+**[强制]对象创建时，如果一个对象的所有属性均可以不添加引号，所有属性不添加引号；如果任何一个属性需要添加引号，则所有属性建议添加''**      
 示例：    
 ```javascript
 var info = {
@@ -1479,7 +1481,7 @@ var info = {
 	'age': 28
 }
 ```    
-**[强制]不允许修改和扩展任何原生对象和宿主对象的原型**    
+**[强制]不允许修改和扩展任何原生对象和宿主对象的原型**      
 示例：    
 ```javascript
 // 以下行为绝对禁止
@@ -1489,13 +1491,14 @@ String.prototype.trim = function() {
 ```    
 **[建议]访问对象属性时，尽量使用'.'进行访问**  
 - 属性名符合Identifier的要求，就可以通过'.'来访问，否则就只能通过[expr]方式访问  
-- 通常在JavaScript中声明的对象，属性命名是使用camel命名法，用'.'来访问更清晰简洁。部分特殊的属性（比如来自后端的JSON），可能采用不寻常的命名方式，可以通过[expr]方式进行访问  
+- 通常在JavaScript中声明的对象，属性命名是使用camel命名法，用'.'来访问更清晰简洁。部分特殊的属性（比如来自后端的JSON），可能采用不寻常的命名方式，可以通过[expr]方式进行访问      
+
 示例：    
 ```javascript
 info.age;
 info['more-info'];
 ```    
-**[建议]使用for in遍历对象时，使用hasOwnProperty过滤掉原型中的属性**    
+**[建议]使用for in遍历对象时，使用hasOwnProperty过滤掉原型中的属性**      
 示例：    
 ```javascript
 var newInfo = {};
@@ -1508,7 +1511,7 @@ for (var key in info) {
 
 <h2 id="5">5 类型</h2>
 
-**[建议]类型检测优先使用typeof，对象类型检测使用instanceof，null或undefined的检测使用 == null**    
+**[建议]类型检测优先使用typeof，对象类型检测使用instanceof，null或undefined的检测使用 == null**      
 示例：    
 ```javascript
 // string
@@ -1543,7 +1546,7 @@ String(num);
 ```javascript
 num + '';
 ```    
-**[建议]类型转换，当转换成number时，使用 + **    
+**[建议]类型转换，当转换成number时，使用+**      
 反例：    
 ```javascript
 Number(str);
@@ -1552,7 +1555,7 @@ Number(str);
 ```javascript
 + str;
 ```    
-**[建议]类型转换，string转换成number，要转换的字符串结尾包含非数字并期望忽略时，使用parseInt**    
+**[建议]类型转换，string转换成number，要转换的字符串结尾包含非数字并期望忽略时，使用parseInt**      
 示例：    
 ```javascript
 var width = '200px';
@@ -1804,9 +1807,10 @@ class Car {
 var car = new Car().setColor(‘pink’).setMake(‘Ford’).setModel(‘F-150’).save();
 ```    
 **[建议]优先使用组合模式而非继承。应多使用组合模式而非继承，在想使用继承前，多想想能否通过组合模式满足需求。在以下三点情况下使用继承具有更大的优势**  
-- 继承关系表现为“是一个”而非“有一个”（例如动物人应使用继承，用户用户细节应使用组合）  
+- 继承关系表现为"是一个"而非"有一个"（例如动物-->人应使用继承，用户-->用户细节应使用组合）  
 - 可以复用基类的代码  
-- 希望当基类改变时所有派生类都受到影响  
+- 希望当基类改变时所有派生类都受到影响      
+
 反例：    
 ```javascript
 class Employee {
@@ -1884,8 +1888,8 @@ try {
 
 <h3 id="8.1">8.1 注释内容</h3>
 
-具体内容详见*JSDOC注释规范*
-**[强制]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新**    
+具体内容详见*JSDOC注释规范*      
+**[强制]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新**      
 示例：    
 ```javascript
 /*
