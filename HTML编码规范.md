@@ -38,7 +38,7 @@
 
 **[建议]html、css、js、images、fonts等文件目录组织如下所示**      
 
-![文件目录组织][HTML_image1]      
+![文件目录组织][HTML_image1]
 
 **[强制]文件命名原则**        
 所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css  
@@ -178,7 +178,7 @@
 ①<!DOCTYPE html>
 ②<html>  
     ③<head>  
-        ④<meta http-equiv="Content-Type" content="text/html; chartset=UTF-8"> 
+        ④<meta http-equiv = "Content-Type" content = "text/html; chartset = UTF-8"> 
         ⑤<title>页面标题</title>  
     ③</head>  
     ⑥<body>  
@@ -294,12 +294,12 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]有助于提高页面的可访问性，必须设置正确的lang属性**  
 示例：      
 ```javascript
-<html lang="zh-CN">
+<html lang = "zh-CN">
 ```      
 **[强制]页面必须指定字符编码的meta，且必须是head的第一个直接子元素**      
 示例：      
 ```javascript
-<meta charset="UTF-8">
+<meta charset = "UTF-8">
 ```      
 
 #### 3.5.3 CSS和JavaScript引入
@@ -307,8 +307,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]引入CSS时必须指明rel="stylesheet"**      
 示例：      
 ```javascript
-<link rel="stylesheet" href="code-guide.css">
-<script type="text/javascript" src="code-guide.js"></script>
+<link rel = "stylesheet" href = "code-guide.css">
+<script type = "text/javascript" src = "code-guide.js"></script>
 ```      
 **[建议]CSS文件外链至head标签之间，这样可以加快网页加载速度，因为这样可以使网页逐步渲染**  
 **[建议]JavaScript代码必须放在页面末尾或采用异步加载，因为当加载一个脚本时，页面会暂停加载，直到脚本完全载入，因此会浪费用户很多时间**      
@@ -344,8 +344,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 推荐使用第一种，减少不必要的id，如果DOM结构不允许直接嵌套，则应使用第二种      
 示例：      
 ```javascript
-<label><input type="checkbox" name="confirm" value="on">我已确认上述条款</label>
-<label>用户：</label><input type="text" name="user" id="user">
+<label><input type = "checkbox" name = "confirm" value = "on">我已确认上述条款</label>
+<label>用户：</label><input type = "text" name = "user" id = "user">
 ```      
 
 #### 3.7.2 按钮
@@ -469,7 +469,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 示例：      
 ```javascript
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
     文档头部
   </head>
@@ -519,13 +519,13 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]meta标签提供的是有关页面的元信息（meta-information）,里面的charset="utf-8"表示字符编码，因为不同国家的语言不同，其转义的方式不同，所以为了不会出现乱码的情况，必须加上一个字符编码，而"utf-8"又被称为万国码**  
 **[强制]meta标签永远位于head元素内部，meta标签没有结束标签**  
 **[建议]标签的属性有两种**  
-- name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示  
+- name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示    
 
-![name和content属性][HTML_image2]  
+![name和content属性][HTML_image2]
 
-- http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示  
+- http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示    
 
-![http-equiv和content属性][HTML_image3]  
+![http-equiv和content属性][HTML_image3]
 
 ### 4.7 title标签
 
@@ -557,7 +557,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
   </head>
   <body>
 	  <!--错误在于将link标签写在了body标签内-->
-    <link rel="stylesheet" type="text/css" href="theme.css"> 
+    <link rel = "stylesheet" type = "text/css" href = "theme.css"> 
   </body>
 </html>
 ```  
@@ -565,7 +565,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 ```javascript
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="theme.css">
+    <link rel = "stylesheet" type = "text/css" href = "theme.css">
   </head>
   <body>
 	  文档主体
@@ -583,7 +583,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <!--给h1标签和p标签设置字体颜色-->
 <html>
   <head>
-    <style type="text/css">
+    <style type = "text/css">
       h1 {color:red}
       p {color:blue}
     </style>
@@ -600,14 +600,14 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]script>标签用于定义客户端脚本，比如JavaScript。script标签既可包含脚本语句，也可以通过"src"属性指向外部脚本文件。JavaScript通常用于图像操作、表单验证以及动态内容更改**  
 示例：      
 ```javascript
-<script type="text/javascript">
+<script type = "text/javascript">
   document.write("Hello World!")
 </script>
 ```      
 **[强制]如果使用"src"属性，则script标签必须是空的**  
 **[建议]有多种执行外部脚本的方法，如下所示**  
-- 如果async="async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
-- 如果不使用async且defer="defer"：脚本将在页面完成解析时执行
+- 如果async = "async"：脚本相对于页面的其余部分异步地执行（当页面继续进行解析时，脚本将被执行）
+- 如果不使用async且defer = "defer"：脚本将在页面完成解析时执行
 - 如果既不使用async也不使用defer：在浏览器继续解析页面之前，立即读取并执行脚本  
 
 ### 4.11 body标签
@@ -653,10 +653,10 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]form标签用于创建供用户输入的HTML表单，也可用于向服务器传输数据。该标签可以包含一个或多个如下的表单元素：input、textarea、button、select、option、optgroup、fieldset、label标签**    
 示例：      
 ```javascript
-<form action="form_action.asp" method="get">
-  <p>First name: <input type="text" name="fname"></p>
-  <p>Last name: <input type="text" name="lname"></p>
-  <input type="submit" value="Submit">
+<form action = "form_action.asp" method = "get">
+  <p>First name: <input type = "text" name = "fname"></p>
+  <p>Last name: <input type = "text" nam e= "lname"></p>
+  <input type = "submit" value = "Submit">
 </form>
 ```      
 
@@ -665,22 +665,22 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]input标签规定了用户可以在其中输入数据的输入字段，该标签在form标签中使用，用来声明允许用户输入数据的input控件，输入字段可通过多种方式改变，取决于type属性**  
 示例：      
 ```javascript
-<form action="form_action.asp" method="get">
+<form action  ="form_action.asp" method = "get">
   <!--文本域-->
-  First name: <input type="text" name="fname">
-  Last name: <input type="text" name="lname">
+  First name: <input type = "text" name = "fname">
+  Last name: <input type = "text" name = "lname">
   <!--密码域-->
-  <input type="password" name="password">
+  <input type = "password" name = "password">
   <!--复选框-->
-  <input type="checkbox" name="checkbox1">
+  <input type = "checkbox" name = "checkbox1">
   <!--单选按钮-->
-  <input type="radio" name="radio1">
+  <input type = "radio" name = "radio1">
   <!--按钮-->
-  <input type="button" value="Hello world ">
+  <input type = "button" value = "Hello world ">
   <!--上传文件-->
-  <input type="button" value="Hello world ">
+  <input type = "button" value = "Hello world ">
   <!--提交表单按钮-->
-  <input type="submit" value="Submit">
+  <input type = "submit" value = "Submit">
 </form>
 ```      
 
@@ -689,7 +689,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]textarea标签定义一个多行的文本输入控件，文本区域中可容纳无限数量的文本，其中的文本的默认字体是等宽字体（通常是Courier）。可以通过cols和rows属性来规定textarea的尺寸大小，不过更好的办法是使用CSS的height和width属性**  
 示例：      
 ```javascript
-<textarea rows="3" cols="20">
+<textarea rows = "3" cols = "20">
   在这里，你可找到你所需要的HTML标准
 </textarea>
 <textarea style = "width: 100px; height: 100px;">
@@ -715,8 +715,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <select>
   <option value ="volvo">Volvo</option>
   <option value ="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
+  <option value = "opel">Opel</option>
+  <option value = "audi">Audi</option>
 </select>
 ```      
 
@@ -916,14 +916,14 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 示例：      
 ```javascript
 <head>  
-  <meta charset="utf-8">
+  <meta charset = "utf-8">
   <!-- 兼容IE -->
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+  <meta http-equiv = "X-UA-Compatible" content = "IE = edge,chrome = 1">  
   <!-- SEO优化 -->  
   <title>Style Guide</title>  
-  <meta name="keywords" content="your keywords">  
-  <meta name="description" content="your description">  
-  <meta name="author" content="author,email address">  
+  <meta name = "keywords" content = "your keywords">  
+  <meta name = "description" content = "your description">  
+  <meta name = "author" content = "author, email address">  
 </head>  
 ```      
 
