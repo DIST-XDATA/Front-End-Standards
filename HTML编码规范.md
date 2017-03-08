@@ -41,7 +41,7 @@
 ![文件目录组织][HTML_image1]      
 
 **[强制]文件命名原则**        
-所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css
+所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css  
 **[建议]常用目录名**      
 - data（数据库）
 - images（图片）
@@ -66,51 +66,52 @@
 ```javascript
 <input name = "foo-name">
 <div id = "foo-id"></div>
-```      
+```  
 **[建议]标签的使用应尽量简洁，减少不必要的标签**      
 反例：      
 ```javascript
 <span class = "avatar">
 	<img src = "image.png">
 </span>
-```      
+```  
 正例：      
 ```javascript
 <img class = "avatar" src = "image.png">
-```      
-**[强制]属性值必须用双引号包围，不允许使用单引号，不允许不使用引号**      
+```  
+**[强制]属性值必须用双引号包围，不允许使用单引号，不允许不使用引号**  
 反例：      
 ```javascript
 <script src = esl.js></script>
 <script src = 'esl.js'></script>
-```      
+```  
 正例：      
 ```javascript
 <script src = "esl.js"></script>
-```      
-**[建议]省略嵌入式资源协议头**      
+```  
+**[建议]省略嵌入式资源协议头**  
 - 省略图像、媒体文件、样式表和脚本等URL协议头部声明（http:，https），如果不是这两个声明的URL则不省略
 - 省略协议声明，使URL成相对地址，防止内容混淆问题和导致小文件重复下载（这主要是指http和https交杂的场景中）      
-反例：      
+反例：  
 ```javascript
 <script src = "http://www.google.com/js/gweb/analytics/autotrack.js"></script>
-```      
-正例：      
+```  
+正例：  
 ```javascript
 <script src = "//www.google.com/js/gweb/analytics/autotrack.js"></script>
-```      
+```  
 **[建议]在调用CSS和JavaScript时，可以将type属性省略不写。HTML5在引入CSS时，默认type值为text/css；在引入JavaScript时，默认type值为text/javascript**      
 示例：      
 ```javascript
 <link rel = "stylesheet" href = "base.css">
 <script src = "base.js"></script>
-```      
-**[建议]在编写代码时尽量将功能界面模块化，使用模块化的思路安排界面布局，主要体现在**      
+```  
+**[建议]在编写代码时尽量将功能界面模块化，使用模块化的思路安排界面布局，主要体现在**  
 - 每个模块必须有一个模块名
 - 每个模块的基本组成部分应该一致
 - 模块的子节点类名需带上模块名（防止模块间嵌套时产生不必要的覆盖）
-- 孙辈节点无需再带模块名      
-示例：      
+- 孙辈节点无需再带模块名    
+
+示例：  
 ```javascript
 <div class = "m-detail">
 	<div class = "m-detail-hd">
@@ -123,11 +124,11 @@
 	  <a href = "#" class = "more">更多</a>
   </div>
 </div>
-```      
+```  
 
 ### 3.1 缩进与换行
 
-**[强制]使用4个空格或一个TAB作为一个缩进层级**      
+**[强制]使用4个空格或一个TAB作为一个缩进层级**  
 反例：      
 ```javascript
 <div>
@@ -225,7 +226,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 ##### 3.3.3.4 其他嵌套规则
 
 **[强制]所有元素必须正确嵌套**      
-- 不允许交叉      
+- 不允许交叉    
+
 反例：      
 ```javascript
 <span><dfn>交叉嵌套</span></dfn>
@@ -234,7 +236,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 ```javascript
 <span><dfn>交叉嵌套</dfn></span>
 ```      
-- 不允许非法的子元素嵌套      
+- 不允许非法的子元素嵌套    
+
 反例：      
 ```javascript
 <ul>
@@ -253,7 +256,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 	</ul>
 </div>
 ```      
-- inline元素不能包含block元素      
+- inline元素不能包含block元素    
+
 反例：      
 ```javascript
 <span>
@@ -315,7 +319,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]head标签里放置的内容不会在页面中显示，页面中显示的内容是放在body标签里面的，head标签部分除了放置meta、title标签，还有链接到CSS的link标签**      
 **[建议]保证favicon可访问。在未指定favicon时，大多数浏览器会请求Web Server根目录下的favicon.ico，为了保证favicon可访问，避免404，必须遵循以下两种方法之一**      
 - 在Web Server根目录放置favicon.ico文件
-- 使用link指定favicon      
+- 使用link指定favicon    
+
 示例：      
 ```javascript
 <link rel = "shortcut icon" href = "path/to/favicon.ico">
@@ -333,7 +338,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 
 **[强制]文本标题的控件必须使用label标签将其与其标题相关联，有两种方式**      
 - 将控件置于label内
-- label的for属性指向控件的id      
+- label的for属性指向控件的id    
+
 推荐使用第一种，减少不必要的id，如果DOM结构不允许直接嵌套，则应使用第二种      
 示例：      
 ```javascript
@@ -482,7 +488,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 - link标签
 - meta标签
 - script标签
-- noscript标签      
+- noscript标签    
+
 反例：      
 ```javascript
 <html>
@@ -511,11 +518,11 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]meta标签提供的是有关页面的元信息（meta-information）,里面的charset="utf-8"表示字符编码，因为不同国家的语言不同，其转义的方式不同，所以为了不会出现乱码的情况，必须加上一个字符编码，而"utf-8"又被称为万国码**      
 **[强制]meta标签永远位于head元素内部，meta标签没有结束标签**      
 **[建议]标签的属性有两种**      
-- name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示      
+- name和content：name属性用于描述网页，它以"名称/值"来表现，而name具体的内容则由content属性来表示，其中，name一般使用较多的是keywords（关键字）、description（简短的描述），便于爬虫查找和分类，如下图所示    
 
 ![name和content属性][HTML_image2]      
 
-- http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示      
+- http-equiv与content属性，目前较多是使用它们进行页面的刷新与跳转，如下图所示    
 
 ![http-equiv和content属性][HTML_image3]      
 
@@ -765,7 +772,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 **[强制]在所有浏览器中，链接的默认外观如下**  
 - 未被访问的链接带有下划线而且是蓝色的
 - 已被访问的链接带有下划线而且是紫色的
-- 活动链接带有下划线而且是红色的  
+- 活动链接带有下划线而且是红色的    
+
 **[建议]使用CSS来设置链接的样式**  
 
 ### 4.23 ul标签
@@ -925,7 +933,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 2. width：浏览器宽度，输出设备中的页面可见区域宽度
 3. device-width：设备分辨率宽度，输出设备的屏幕可见宽度
 4. initial-scale：初始缩放比例
-5. maximum-scale：最大缩放比例  
+5. maximum-scale：最大缩放比例    
+
 示例：      
 ```javascript
 <!--为移动端设备优化，设置可见区域的宽度和初始缩放比例-->
@@ -936,7 +945,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 
 以下规范内容均为**[建议]**  
 1. apple-touch-icon：图片自动处理成圆角和高光等效果
-2. apple-touch-icon-precomposed：禁止系统自动添加效果，直接显示设计原图  
+2. apple-touch-icon-precomposed：禁止系统自动添加效果，直接显示设计原图    
+
 示例：      
 ```javascript
 <!-- iPhone 和 iTouch，默认 57x57 像素，必须有 -->
