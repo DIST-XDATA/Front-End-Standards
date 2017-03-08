@@ -36,11 +36,11 @@
 
 ## 2 文件规范
 
-**[建议]html、css、js、images、fonts等文件目录组织如下所示**      
+**[建议]html、css、js、images、fonts等文件目录组织如下所示**    
 
-![文件目录组织][HTML_image1]
+![][HTML_image1]
 
-**[强制]文件命名原则**        
+**[强制]文件命名原则**  
 所有字母小写，单词之间使用破折号（-）相连，压缩后的文件在原文件名（除扩展名）后添加.min，例如bootstrap-theme.css文件在压缩后变为bootstrap-theme.min.css  
 **[建议]常用目录名**      
 - data（数据库）
@@ -960,8 +960,8 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 <link rel = "apple-touch-icon-precomposed" href = "/apple-touch-icon-144x144-precomposed.png" sizes = "144x144">
 ```      
 
-*本规范文档将不断修改更新，请各位批评指正*
+*本规范文档将不断修改更新，请各位批评指正*    
 
-[HTML_image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png
-[HTML_image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png
-[HTML_image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png
+[HTML_image1]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image1.png  
+[HTML_image2]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image2.png  
+[HTML_image3]:https://github.com/DIST-XDATA/Code-Conventions/blob/master/images/HTML_image3.png  
