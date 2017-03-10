@@ -246,12 +246,12 @@
 	<div class = "m-detail-hd">
 		<h1 class = "title">模块标题</h1>
 	</div>
-  <div class = "m-detail-bd">
-	  <p class = "info">详细内容</p>
-  </div>
-  <div class = "m-detail-ft">
-	  <a href = "#" class = "more">更多</a>
-  </div>
+    <div class = "m-detail-bd">
+        <p class = "info">详细内容</p>
+    </div>
+    <div class = "m-detail-ft">
+        <a href = "#" class = "more">更多</a>
+    </div>
 </div>
 ```  
 
