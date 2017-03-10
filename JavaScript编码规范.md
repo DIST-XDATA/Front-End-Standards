@@ -923,7 +923,7 @@ var oExample = {};
 **[强制]循环变量应该在循环开始前就被初始化，如使用for循环，则使用for语句初始化循环变量**      
 示例：    
 ```javascript
-for (var i = 0, j < length; i < j; i++) {
+for (var i = 0, j = length; i < j; i++) {
   // statement
 }
 ```    
@@ -1944,14 +1944,12 @@ try {
 **[强制]JavaScript文件在开头应包含类似以下注释说明，修改人、修改时间及修改描述这三项要实时更新，保证为最新**      
 示例：    
 ```javascript
-/*
-*@fileName:文件名
-*@fileDesc:文件功能描述
-*@author:创建人
-*@createTime:创建时间
-*@modifiedBy:修改人
-*@modifiedTime:修改时间
-*@modifiedDesc:修改描述
+/**
+* @file 
+* @author 倪志航
+* @desc 任务人员框，用于添加任务人员……
+* ……
+* @createTime 2017/3/3
 */
 ```  
 **[强制]在大功能区（或难以理解的部分）代码的开头添加注释，对其功能、参数及返回值进行描述**    
