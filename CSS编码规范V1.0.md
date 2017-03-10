@@ -463,3 +463,17 @@ article {
 如希望使用更小副作用的清除浮动方法，参见 [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/) 一文。
 
 另需注意，对已经触发 BFC 的元素不需要再进行 clearfix。
+
+### 3.5 !important
+
+**[建议] 尽量不使用 !important 声明。**
+
+**[建议] 当需要强制指定样式且不允许任何场景覆盖时，通过标签内联和 !important 定义样式。**
+
+解释：
+
+必须注意的是，仅在设计上 确实`不允许任何其它场景覆盖样式` 时，才使用内联的` !important` 样式。通常在第三方环境的应用中使用这种方案。下面的 [`z-index`](### 3.6 z-index) 章节是其中一个特殊场景的典型样例。
+
+### 3.6 z-index
+
+
