@@ -525,7 +525,7 @@ a标签不允许嵌套div标签这种约束属于语义嵌套约束，与之区�
 	<div class = "buttons-group">
 		<button type = "button">取消</button>
 		<button type = "submit">提交</button>
-  </div>
+    </div>
 </div>
 ```      
 
