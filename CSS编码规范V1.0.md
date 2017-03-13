@@ -517,3 +517,216 @@ article {
 第三方环境对于开发者来说完全不可控。在第三方环境下的元素，为了保证元素不被其页面其他样式定义覆盖，需要采用此做法。
 
 <h2 id="4">4 值与单位</h2>
+<h3 id="4.1">4.1 文本</h3>
+**[强制] 文本内容必须用双引号包围。**
+
+解释：
+
+文本类型的内容可能在选择器、属性值等内容中。
+
+反例:
+
+```css
+html[lang|=zh] q:before {
+    font-family: 'Microsoft YaHei', sans-serif;
+    content: '“';
+}
+
+html[lang|=zh] q:after {
+    font-family: "Microsoft YaHei", sans-serif;
+    content: "”";
+}
+```
+
+正例：
+
+```css
+html[lang|="zh"] q:before {
+    font-family: "Microsoft YaHei", sans-serif;
+    content: "“";
+}
+
+html[lang|="zh"] q:after {
+    font-family: "Microsoft YaHei", sans-serif;
+    content: "”";
+}
+```
+
+<h3 id="4.2">4.2 数值</h3>
+
+**[强制] 当数值为 0 - 1 之间的小数时，省略整数部分的 0。**
+
+反例:
+```css
+panel {
+    opacity: 0.8;
+}
+```
+
+正例：
+```css
+panel {
+    opacity: .8;
+}
+```
+<h3 id="4.3">4.3 url()</h3>
+**[强制] url() 函数中的路径不加引号。**
+
+反例:
+```css
+body {
+    background: url("bg.png");
+}
+```
+
+正例：
+```
+body {
+    background: url(bg.png);
+}
+```
+**[建议] url() 函数中的绝对路径可省去协议名。**
+
+示例：
+
+```css
+body {
+    background: url(//baidu.com/img/bg.png) no-repeat 0 0;
+}
+```
+<h3 id="4.4">4.4 长度</h3>
+**[强制] 长度为 0 时须省略单位。 (也只有长度单位可省)**
+
+反例:
+```css
+body {
+    padding: 0px 5px;
+}
+```
+
+正例：
+```
+body {
+    padding: 0 5px;
+}
+```
+<h3 id="4.5">4.5 颜色</h3>
+**[强制] RGB颜色值必须使用十六进制记号形式 #rrggbb。不允许使用 rgb()。**
+
+解释：
+
+带有alpha的颜色信息可以使用 rgba()。使用 rgba() 时每个逗号后必须保留一个空格。
+
+
+反例:
+```css
+.success {
+    box-shadow: 0 0 2px rgba(0,128,0,.3);
+    border-color: rgb(0, 128, 0);
+}
+```
+
+正例：
+```css
+.success {
+    box-shadow: 0 0 2px rgba(0, 128, 0, .3);
+    border-color: #008000;
+}
+```
+
+**[强制] 颜色值可以缩写时，必须使用缩写形式。**
+
+
+反例:
+```css
+.success {
+    background-color: #aaccaa;
+}
+```
+
+正例：
+```css
+.success {
+    background-color: #aca;
+}
+```
+**[强制] 颜色值不允许使用命名色值。**
+
+反例:
+```css
+.success {
+    color: lightgreen;
+}
+```
+
+正例：
+```css
+.success {
+    color: #90ee90;
+}
+```
+
+**[建议] 颜色值中的英文字符采用小写。如不用小写也需要保证同一项目内保持大小写一致。**
+
+反例:
+```css
+.success {
+    background-color: #ACA;
+    color: #90ee90;
+}
+```
+
+正例：
+```css
+.success {
+    background-color: #aca;
+    color: #90ee90;
+}
+```
+
+<h2 id="5">5 文本编排</h2>
+<h3 id="5.1">5.1 字体族</h3>
+**[强制] font-family 属性中的字体族名称应使用字体的英文 Family Name，其中如有空格，须放置在引号中。**
+
+解释：
+
+所谓英文 Family Name，为字体文件的一个元数据，常见名称如下：
+
+字体 | 操作系统 | Family Name
+-----|----------|------------
+宋体 (中易宋体) | Windows | SimSun
+黑体 (中易黑体) | Windows | SimHei
+微软雅黑 | Windows | Microsoft YaHei
+微软正黑 | Windows | Microsoft JhengHei
+华文黑体 | Mac/iOS | STHeiti
+冬青黑体 | Mac/iOS | Hiragino Sans GB
+文泉驿正黑 | Linux | WenQuanYi Zen Hei
+文泉驿微米黑 | Linux | WenQuanYi Micro Hei
+
+示例：
+
+```css
+h1 {
+    font-family: "Microsoft YaHei";
+}
+```
+
+#### [强制] `font-family` 按「西文字体在前、中文字体在后」、「效果佳 (质量高/更能满足需求) 的字体在前、效果一般的字体在后」的顺序编写，最后必须指定一个通用字体族( `serif` / `sans-serif` )。
+
+解释：
+
+更详细说明可参考[本文](http://www.zhihu.com/question/19911793/answer/13329819)。
+
+```css
+/* Display according to platform */
+.article {
+    font-family: Arial, sans-serif;
+}
+
+/* Specific for most platforms */
+h1 {
+    font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "WenQuanYi Micro Hei", "Microsoft YaHei", sans-serif;
+}
+```
+
+#### [强制] `font-family` 不区分大小写，但在同一个项目中，同样的 `Family Name` 大小写必须统一。
