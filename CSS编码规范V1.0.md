@@ -730,3 +730,137 @@ h1 {
 ```
 
 #### [强制] `font-family` 不区分大小写，但在同一个项目中，同样的 `Family Name` 大小写必须统一。
+
+反例：
+```css
+body {
+    font-family: arial, sans-serif;
+}
+
+h1 {
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+
+```
+
+正例：
+```
+body {
+    font-family: arial, sans-serif;
+}
+
+h1 {
+    font-family: Arial, "Microsoft YaHei", sans-serif;
+}
+```
+
+<h3 id="5.2">5.2 字号</h3>
+#### [强制] 需要在 Windows 平台显示的中文内容，其字号应不小于 `12px`。
+
+解释：
+
+由于 Windows 的字体渲染机制，小于 `12px` 的文字显示效果极差、难以辨认。
+
+<h3 id="5.3">5.3 字体风格</h3>
+
+#### [建议] 需要在 Windows 平台显示的中文内容，不要使用除 `normal` 外的 `font-style`。其他平台也应慎用。
+
+解释：
+
+由于中文字体没有 `italic` 风格的实现，所有浏览器下都会 fallback 到 `obilique` 实现 (自动拟合为斜体)，小字号下 (特别是 Windows 下会在小字号下使用点阵字体的情况下) 显示效果差，造成阅读困难。
+
+<h3 id="5.4">5.4 字重</h3>
+
+#### [强制] `font-weight` 属性必须使用数值方式描述。
+
+解释：
+
+CSS 的字重分 100 – 900 共九档，但目前受字体本身质量和浏览器的限制，实际上支持 `400` 和 `700` 两档，分别等价于关键词 `normal` 和 `bold`。
+
+浏览器本身使用一系列[启发式规则](http://www.w3.org/TR/CSS21/fonts.html#propdef-font-weight)来进行匹配，在 `<700` 时一般匹配字体的 Regular 字重，`>=700` 时匹配 Bold 字重。
+
+但已有浏览器开始支持 `=600` 时匹配 Semibold 字重 (见[此表](http://justineo.github.io/slideshows/font/#/3/15))，故使用数值描述增加了灵活性，也更简短。
+
+反例：
+
+```css
+h1 {
+    font-weight: bold;
+}
+```
+正例：
+```css
+h1 {
+    font-weight: 700;
+}
+```
+
+<h3 id="5.5">5.5 行高</h3>
+#### [建议] `line-height` 在定义文本段落时，应使用数值。
+
+解释：
+
+将 `line-height` 设置为数值，浏览器会基于当前元素设置的 `font-size` 进行再次计算。在不同字号的文本段落组合中，能达到较为舒适的行间间隔效果，避免在每个设置了 `font-size` 都需要设置 `line-height`。
+
+当 `line-height` 用于控制垂直居中时，还是应该设置成与容器高度一致。
+
+示例：
+
+```css
+.container {
+    line-height: 1.5;
+}
+```
+
+<h2 id="6">6 变换与动画</h2>
+
+#### [强制] 使用 `transition` 时应指定 `transition-property`。
+
+反例：
+
+```css
+.box {
+    transition: all 1s;
+}
+```
+正例:
+````
+.box {
+    transition: color 1s, border-color 1s;
+}
+```
+#### [建议] 尽可能在浏览器能高效实现的属性上添加过渡和动画。
+
+解释：
+
+见[本文](http://www.html5rocks.com/en/tutorials/speed/high-performance-animations/)，在可能的情况下应选择这样四种变换：
+
+* `transform: translate(npx, npx);`
+* `transform: scale(n);`
+* `transform: rotate(ndeg);`
+* `opacity: 0..1;`
+典型的，可以使用 `translate` 来代替 `left` 作为动画属性。
+
+反例：
+
+```css
+.box {
+    left: 0;
+    transition: left 1s;
+}
+.box:hover {
+    left: 20px; /* move right for 20px */
+}
+```
+正例：
+```
+.box {
+    transition: transform 1s;
+}
+.box:hover {
+    transform: translate(20px); /* move right for 20px */
+}
+
+```
+
+
