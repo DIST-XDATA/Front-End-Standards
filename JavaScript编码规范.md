@@ -1076,11 +1076,25 @@ var menuConfig = {
 	cancelLable: true
 }
 
-function createMenu(menuConfig){
+function createMenu(menuConfig) {
 	// …
 }
-```    
-**[强制]函数功能的单一性，这是软件功能中最重要的原则之一，功能不单一的函数将导致难以重构、测试和理解；功能单一的函数易于重构，并使代码更加干净**    
+```      
+特例：如果函数中包含多个回调函数，则允许有超过2个的参数存在      
+示例：      
+```javascript
+var menuConfig = {
+	title: ‘Foo’,
+	body: ‘Bar’,
+	buttonText: ‘Baz’,
+	cancelLable: true
+}
+
+function createMenu(menuConfig, callback1, callback2) {
+	// …
+}
+```      
+**[强制]函数功能的单一性，这是软件功能中最重要的原则之一，功能不单一的函数将导致难以重构、测试和理解；功能单一的函数易于重构，并使代码更加干净**      
 **[强制]函数名应明确表明其功能**    
 反例：    
 ```javascript
