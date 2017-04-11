@@ -182,47 +182,47 @@ var accountElement = '';
 **[强制]函数名，必须采用camel命名法，使用动词或动词短语为其命名**  
 反例：  
 ```javascript
-function Value(){
+function Value() {
     // ...
 }
-function elementvalue(){
+function elementvalue() {
     // ...
 }
-function ElementValue(){
+function ElementValue() {
     // ...
 }
 ```  
 正例：  
 ```javascript
-function getValue(){
+function getValue() {
     // ...
 }
-function getElementValue(){
+function getElementValue() {
     // ...
 }
-function setElementValue(){
+function setElementValue() {
     // ...
 }
 ```  
 **[强制]函数参数名，必须采用camel命名法**    
 反例：  
 ```javascript
-function funcName(Element){
+function funcName(Element) {
     // ...
 }
-function funcName(accountelement){
+function funcName(accountelement) {
     // ...
 }
-function funcName(AccountElement){
+function funcName(AccountElement) {
     // ...
 }
 ```  
 正例：   
 ```javascript
-function funcName(element){
+function funcName(element) {
     // ...
 }
-function funcName(accountElement){
+function funcName(accountElement) {
     // ...
 }
 ```  
@@ -230,7 +230,7 @@ function funcName(accountElement){
 示例：    
 ```javascript
 // TestClass为一个类
-function TestClass(valueOne, valueTwo){
+function TestClass(valueOne, valueTwo) {
     this.testValueOne = valueOne;
     this.testValueTwo = valueTwo;
 }
@@ -263,13 +263,13 @@ IS_DEBUG_ENABLED
 **[强制]类名，必须使用pascal命名法**    
 反例：    
 ```javascript
-function testClass(){
+function testClass() {
     // ...
 }
 ```
 正例：    
 ```javascript
-function TestClass(){
+function TestClass() {
     // ...
 }
 ```
@@ -1405,7 +1405,7 @@ function funcName() {
     // …
 }
 // 如果是函数表达式，分号是不允许省略的
-var funcName = function() {
+var funcName = function () {
     // …
 };
 ```    
@@ -1522,7 +1522,7 @@ console.log('Employee name: ' + employee.getName());  // Employee name: undefine
 ```javascript
 Var Employee = (function () {
     function Employee(name) {
-        this.getName = function() {
+        this.getName = function () {
             return name;
         };
     }
@@ -1795,7 +1795,7 @@ class DOMTraverser {
 var domTraverser({
     rootNode: document.getElementByTagName(‘body’);
     options: {
-        animationModule: function() {}
+        animationModule: function () {}
     }
 });
 ```    
