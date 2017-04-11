@@ -183,47 +183,47 @@ var accountElement = '';
 反例：  
 ```javascript
 function Value(){
-  // ...
+    // ...
 }
 function elementvalue(){
-  // ...
+    // ...
 }
 function ElementValue(){
-  // ...
+    // ...
 }
 ```  
 正例：  
 ```javascript
 function getValue(){
-  // ...
+    // ...
 }
 function getElementValue(){
-  // ...
+    // ...
 }
 function setElementValue(){
-  // ...
+    // ...
 }
 ```  
 **[强制]函数参数名，必须采用camel命名法**    
 反例：  
 ```javascript
 function funcName(Element){
-  // ...
+    // ...
 }
 function funcName(accountelement){
-  // ...
+    // ...
 }
 function funcName(AccountElement){
-  // ...
+    // ...
 }
 ```  
 正例：   
 ```javascript
 function funcName(element){
-  // ...
+    // ...
 }
 function funcName(accountElement){
-  // ...
+    // ...
 }
 ```  
 **[强制]类的方法/属性，必须采用camel命名法**      
@@ -231,8 +231,8 @@ function funcName(accountElement){
 ```javascript
 // TestClass为一个类
 function TestClass(valueOne, valueTwo){
-  this.testValueOne = valueOne;
-  this.testValueTwo = valueTwo;
+    this.testValueOne = valueOne;
+    this.testValueTwo = valueTwo;
 }
 ```
 **[强制]私有（保护）成员，必须以下划线开头，且必须采用camel命名法**      
@@ -264,13 +264,13 @@ IS_DEBUG_ENABLED
 反例：    
 ```javascript
 function testClass(){
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 function TestClass(){
-  // ...
+    // ...
 }
 ```
 **[强制]枚举名，必须使用pascal命名法**    
@@ -402,7 +402,7 @@ var rJudge = /^[0-9-]*$/;
 示例：    
 ```javascript
 for (var i = 0, j < length; i < j; i++) {
-  // ...
+    // ...
 }
 ```    
 **[建议]能缩写的名称尽量使用缩写**    
@@ -442,25 +442,25 @@ a = b + c;
 反例：    
 ```javascript
 if (condition){
-	// …
+    // …
 }
 while (condition){
-	// …
+    // …
 }
 function funcName(){
-	// …
+    // …
 }
 ```
 正例：    
 ```javascript
 if (condition) {
-	// …
+    // …
 }
 while (condition) {
-	// …
+    // …
 }
 function funcName() {
-	// …
+    // …
 }
 ```    
 **[强制]if/else/for/while/function/switch/do/try/catch/finally关键字后，必须有一个空格**    
@@ -480,37 +480,37 @@ while (condition) {
 反例：    
 ```javascript
 var obj = {
-	a : 1,
-	b:2,
-	c :3
+    a : 1,
+    b:2,
+    c :3
 };
 ```
 正例：    
 ```javascript
 var obj = {
-	a: 1,
-	b: 2,
-	c: 3
+    a: 1,
+    b: 2,
+    c: 3
 };
 ```    
 **[强制]函数声明、具名函数表达式、函数调用中，函数名和左括号（(）之间不允许有空格**      
 反例：    
 ```javascript
 function funcName () {
-	// …
+    // …
 }
 var funcName = function funcName () {
-	// …
+    // …
 }
 funcName ();
 ```
 正例：    
 ```javascript
 function funcName() {
-	// …
+    // …
 }
 var funcName = function funcName() {
-	// …
+    // …
 }
 funcName();
 ```    
@@ -530,10 +530,10 @@ callFunc( param1, param2, param3 );
 save( this.list[ this.indexes[ i ] ] );
 needIncreament && ( variable += increament );
 if ( num > list.length ) {
-	// …
+    // …
 }
 while ( len-- ) {
-	// …
+    // …
 }
 ```
 正例：    
@@ -542,10 +542,10 @@ callFunc(param1, param2, param3);
 save(this.list[this.indexes[i]]);
 needIncreament && (variable += increament);
 if (num > list.length) {
-	// …
+    // …
 }
 while (len--) {
-	// …
+    // …
 }
 ```    
 **[强制]单行声明的数组与对象，如果包含元素，{}和[]内紧贴括号部分不允许包含空格。声明包含元素的数组与对象，只有当内部元素的形式较为简单时，才允许写在一行。元素复杂的情况，应当换行书写**    
@@ -564,9 +564,9 @@ var arr2 = [1, 2, 3];
 var obj1 = {};
 var obj2 = {name: ‘obj’};
 var obj3 = {
-  name: ‘obj’,
-  age: 20,
-  sex: 1
+    name: ‘obj’,
+    age: 20,
+    sex: 1
 };
 ```    
 **[强制]行尾不得有多余的空格**    
@@ -574,26 +574,26 @@ var obj3 = {
 反例：    
 ```javascript
 function funcName( param1,param2 , param3) {
-  // statement
+    // statement
 }
 ```
 正例：    
 ```javascript
 function funcName(param1, param2, param3) {
-  // statement
+    // statement
 }
 ```    
 **[强制]每个控制部分，比如for语句中的分号（;）后面须跟一个空格**    
 反例：    
 ```javascript
 for (var i = 0, j < length;i < j;i++) {
-  // statement
+    // statement
 }
 ```
 正例：    
 ```javascript
 for (var i = 0, j < length; i < j; i++) {
-  // statement
+    // statement
 }
 ```    
 
@@ -616,10 +616,10 @@ if (user.isAuthenticated() &&
 user.isInRole(‘admin’) &&
 user.hasAuthority(‘add-admin’) ||
 user.hasAuthority(‘delete-admin’)) {
-	// …
+    // …
 }
 var result = number1 + number2 + number3 +
-   number4 + number5;
+    number4 + number5;
 ```
 正例：    
 ```javascript
@@ -627,36 +627,36 @@ if (user.isAuthenticated()
 && user.isInRole(‘admin’)
 && user.hasAuthority(‘add-admin’)
 || user.hasAuthority(‘delete-admin’)) {
-	// …
+    // …
 }
 var result = number1 + number2 + number3
-     + number4 + number5;
+    + number4 + number5;
 ```    
 **[强制]在函数声明、函数表达式、函数调用、对象创建、数组创建、for语句等场景中，不允许在逗号（,）或分号（;）前换行**    
 反例：    
 ```javascript
 var obj = {
-	a: 1
-	, b: 2
-	, c: 3
+    a: 1
+    , b: 2
+    , c: 3
 };
 foo(
-	aVeryVeryLongArgument
-	, anotherVeryLongArgument
-	, callback
+    aVeryVeryLongArgument
+    , anotherVeryLongArgument
+    , callback
 );
 ```
 正例：    
 ```javascript
 var obj = {
-	a: 1,
-	b: 2,
-	c: 3
+    a: 1,
+    b: 2,
+    c: 3
 };
 foo(
-	aVeryVeryLongArgument,
-	anotherVeryLongArgument,
-	callback
+    aVeryVeryLongArgument,
+    anotherVeryLongArgument,
+    callback
 );
 ```    
 **[建议]不同行为或逻辑的语句集，使用空行隔开，更易阅读**
@@ -691,16 +691,16 @@ strElement = '字符串';
 ```javascript
 var strElement = '';
 function funcName() {
-  strElement = '给字符串变量赋值';
-  return strElement;
+    strElement = '给字符串变量赋值';
+    return strElement;
 }
 ```
 正例：    
 ```javascript
 function funcName() {
-  var strElement = '';
-  strElement = '给字符串变量赋值';
-  return strElement;
+    var strElement = '';
+    strElement = '给字符串变量赋值';
+    return strElement;
 }
 ```    
 **[强制]尽量避免使用幻数（直接使用的常数），应使用常量代替**    
@@ -750,8 +750,8 @@ strElement = '这是一个字符串变量';
 正例：    
 ```javascript
 if (condition) {
-  var strElement = '';
-  strElement = '这是一个字符串变量';
+    var strElement = '';
+    strElement = '这是一个字符串变量';
 }
 ```    
 **[强制]左大括号（{）应在符合语句起始行的结尾处，右大括号（}）应与左大括号（{）的那一行开头对齐**    
@@ -759,25 +759,25 @@ if (condition) {
 ```javascript
 if (condition)
 {
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 if (condition) {
-  // ...
+    // ...
 }
 ```    
 **[强制]大括号应该在所有复合语句中使用，即使只有一条语句，当它们是控制结构的一部分时，比如一个if或for语句，这样做可以避免以后添加语句时造成的错误**    
 反例：    
 ```javascript
 if (condition)
-  var strElement = '';
+    var strElement = '';
 ```
 正例：    
 ```javascript
 if (condition) {
-  var strElement = '';
+    var strElement = '';
 }
 ```    
 
@@ -791,23 +791,23 @@ if (condition) {
 反例：    
 ```javascript
 function funcName() {
-  var a = 10;
-  var b = 20;
-  return (a + b);
+    var a = 10;
+    var b = 20;
+    return (a + b);
 }
 function funcName() {
-  var a = 10;
-  var b = 20;
-  return
-    a + b;
+    var a = 10;
+    var b = 20;
+    return
+        a + b;
 }
 ```
 正例：    
 ```javascript
 function funcName() {
-  var a = 10;
-  var b = 20;
-  return a + b;
+    var a = 10;
+    var b = 20;
+    return a + b;
 }
 ```    
 
@@ -817,11 +817,11 @@ function funcName() {
 示例：    
 ```javascript
 if (condition) {
-  statements;
+    statements;
 } else if (condition) {
-  statements;
+    statements;
 } else {
-  statements;
+    statements;
 }
 ```    
 
@@ -831,21 +831,21 @@ if (condition) {
 示例：    
 ```javascript
 for (initialization; condition; update) {
-  statements;
+    // statements;
 }
 ```    
 **[建议]for循环语句使用技巧，例如如下所示的for循环语句**      
 示例：    
 ```javascript
 for (i = 0; i < myArray.length; i++) {
-  statements;
+    // statements;
 }
 ```    
 **[建议]每次判断i是否达到临界值时都要获取一遍myArray的length属性，这样做影响效率，可以用以下的形式**      
 示例：    
 ```javascript
 for (i = 0, max = myArray.length; i < max; i++) {
-  statements;
+    // statements;
 }
 ```    
 
@@ -855,7 +855,7 @@ for (i = 0, max = myArray.length; i < max; i++) {
 示例：    
 ```javascript
 while (condition) {
-  statements;
+    // statements;
 }
 ```    
 
@@ -865,7 +865,7 @@ while (condition) {
 示例：    
 ```javascript
 do {
-  statements;
+    // statements;
 } while (condition);
 ```    
 
@@ -875,10 +875,10 @@ do {
 示例：    
 ```javascript
 switch (expression) {
-  case expression:
-    statements;
-  default:
-    statements;
+    case expression:
+        statements;
+    default:
+        statements;
 }
 ```    
 
@@ -888,11 +888,11 @@ switch (expression) {
 示例：    
 ```javascript
 try {
-  statements;
+    statements;
 } catch (variable) {
-  statements;
+    statements;
 } finally {
-  statements;
+    statements;
 }
 ```    
 
@@ -924,7 +924,7 @@ var oExample = {};
 示例：    
 ```javascript
 for (var i = 0, j = length; i < j; i++) {
-  // statement
+    // statement
 }
 ```    
 **[建议]可以使用do...while语句（但使用时要注意不要出现死循环）**      
@@ -938,9 +938,9 @@ for (var i = 0, j = length; i < j; i++) {
 示例：    
 ```javascript
 if (condition) {
-  // 经常发生的情况
+    // 经常发生的情况
 } else {
-  // 不经常发生的情况
+    // 不经常发生的情况
 }
 ```    
 
@@ -952,58 +952,58 @@ if (condition) {
 反例：    
 ```javascript
 function GetValue {
-  // ...
+    // ...
 }
 function getvalue() {
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 function getValue {
-  // ...
+    // ...
 }
 ```    
 **[强制]统一使用动词或者动词+名词形式**      
 反例：    
 ```javascript
 function version {
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 function getVersion {
-  // ...
+    // ...
 }
 function setVersion {
-  // ...
+    // ...
 }
 ```    
 **[强制]涉及返回逻辑值的函数可以使用is，has，contains等表示逻辑的词语代替动词**      
 示例：    
 ```javascript
 function isObject {
-  var isObject = true;
-  // ...
-  return isObject;
+    var isObject = true;
+    // ...
+    return isObject;
 }
 ```    
 **[强制]对象方法命名使用对象类名+动词+名词形式**      
 示例：    
 ```javascript
 function addressGetEmail {
-  // ...
+    // ...
 }
 ```    
 **[强制]某事件响应函数命名方式为触发事件对象名+事件名或者模块名**      
 示例：    
 ```javascript
 function divClick {
-  // ...
+    // ...
 }
 function addressSubmitButtonClick {
-  // ...
+    // ...
 }
 ```    
 
@@ -1046,52 +1046,52 @@ function addressSubmitButtonClick {
 反例：    
 ```javascript
 function createMicrobrewery(name) {
-  var breweryName;
-  if (name) {
-    breweryName = name;
-  } else {
-    breweryName = 'Hipster Brew Co.';
-  }
+    var breweryName;
+    if (name) {
+        breweryName = name;
+    } else {
+        breweryName = 'Hipster Brew Co.';
+    }
 }
 ```
 正例：    
 ```javascript
 function createMicrobrewery(name) {
-  var breweryName = name || 'Hipster Brew Co.';
+    var breweryName = name || 'Hipster Brew Co.';
 }
 ```    
 **[强制]函数参数在理想状态下不要超过2个，如果函数参数过多，可以将其封装成一个对象进行传递**    
 反例：    
 ```javascript
 function createMenu(title, body, buttonText, cancelLable) {
-	// …
+    // …
 }
 ```
 正例：    
 ```javascript
 var menuConfig = {
-	title: ‘Foo’,
-	body: ‘Bar’,
-	buttonText: ‘Baz’,
-	cancelLable: true
+    title: ‘Foo’,
+    body: ‘Bar’,
+    buttonText: ‘Baz’,
+    cancelLable: true
 }
 
 function createMenu(menuConfig) {
-	// …
+    // …
 }
 ```      
 特例：如果函数中包含多个回调函数，则允许有超过2个的参数存在      
 示例：      
 ```javascript
 var menuConfig = {
-	title: ‘Foo’,
-	body: ‘Bar’,
-	buttonText: ‘Baz’,
-	cancelLable: true
+    title: ‘Foo’,
+    body: ‘Bar’,
+    buttonText: ‘Baz’,
+    cancelLable: true
 }
 
 function createMenu(menuConfig, callback1, callback2) {
-	// …
+    // …
 }
 ```      
 **[强制]函数功能的单一性，这是软件功能中最重要的原则之一，功能不单一的函数将导致难以重构、测试和理解；功能单一的函数易于重构，并使代码更加干净**      
@@ -1099,7 +1099,7 @@ function createMenu(menuConfig, callback1, callback2) {
 反例：    
 ```javascript
 function dateAdd(date, month) {
-	// …
+    // …
 }
 var date = new Date();
 // 这样写很难理解dateAdd(date, 1)是什么意思
@@ -1108,7 +1108,7 @@ dateAdd(date, 1);
 正例：    
 ```javascript
 function dateAddMonth(date, month) {
-	// …
+    // …
 }
 var date = new Date();
 dateAddMonth(date, 1);
@@ -1175,31 +1175,31 @@ function showList(employees) {
 反例：    
 ```javascript
 function writeForumComment(subject, body) {
-  subject = subject || 'No subject';
-  body = body || 'No text';
+    subject = subject || 'No subject';
+    body = body || 'No text';
 }
 ```
 正例：    
 ```javascript
 function writeForumComment(suject = 'No subject', body = 'No text') {
-  // ...
+    // ...
 }
 ```    
 **[建议]使用Object.assign设置默认对象**    
 反例：    
 ```javascript
 var menuConfig = {
-  title: null,
-  body: 'Bar',
-  buttonText: null,
-  cancelLable: true
+    title: null,
+    body: 'Bar',
+    buttonText: null,
+    cancelLable: true
 }
 
 function createMenu(config) {
-  config.title = config.title || 'Foo';
-  config.body = config.body || 'Bar';
-  config.buttonText = config.buttonText || 'Baz';
-  config.cancelLable = config.cancelLable === undefined ? config.cancelLable : true;
+    config.title = config.title || 'Foo';
+    config.body = config.body || 'Bar';
+    config.buttonText = config.buttonText || 'Baz';
+    config.cancelLable = config.cancelLable === undefined ? config.cancelLable : true;
 }
 
 createMenu(menuConfig);
@@ -1207,19 +1207,19 @@ createMenu(menuConfig);
 正例：    
 ```javascript
 var menuConfig = {
-  title: 'Order',
-  // User did not include 'body' key
-  buttonText: 'Send',
-  cancellable: true
+    title: 'Order',
+    // User did not include 'body' key
+    buttonText: 'Send',
+    cancellable: true
 }
 
 function createMenu(config) {
-  config = Object.assign({
-    title: 'Foo',
-    body: 'Bar',
-    buttonText: 'Baz',
-    cancelLable: true
-  }, config);
+    config = Object.assign({
+        title: 'Foo',
+        body: 'Bar',
+        buttonText: 'Baz',
+        cancelLable: true
+    }, config);
 }
 
 createMenu(menuConfig);
@@ -1228,20 +1228,20 @@ createMenu(menuConfig);
 反例：    
 ```javascript
 function createFile(name, temp) {
-	if (temp) {
-		create('./temp/' + name);
-  } else {
-	  create(name);
-  }
+    if (temp) {
+        create('./temp/' + name);
+    } else {
+        create(name);
+    }
 }
 ```
 正例：    
 ```javascript
 function createTempFile(name) {
-	create('./temp/' + name);
+    create('./temp/' + name);
 }
 function createFile(name) {
-	create(name);
+    create(name);
 }
 ```    
 **[强制]避免副作用，当函数产生了除了“接受一个值并返回一个结果”之外的行为时，称该函数产生了副作用，例如：写文件、修改全局变量或将你的钱全部转给了一个陌生人等。程序在某些情况下确实需要副作用这一行为，这时应该将这些功能集中在一起，不要用多个函数/类修改某个文件，用且只用一个Service完成这一需求**    
@@ -1250,7 +1250,7 @@ function createFile(name) {
 var name = 'Manager Zhang';
 
 function splitIntoFirstAndLastName() {
-	name = name.split(' ');
+    name = name.split(' ');
 }
 
 splitIntoFirstAndLastName();
@@ -1260,7 +1260,7 @@ console.log(name);  // 输出['Manager', 'Zhang']
 正例：    
 ```javascript
 function splitIntoFirstAndLastName(name) {
-	return name.split(' ');
+    return name.split(' ');
 }
 
 var name = 'Manager Zhang';
@@ -1275,83 +1275,83 @@ console.log(newName);  //输出['Manager', 'Zhang']
 反例：    
 ```javascript
 if (fsm.state === 'fetching' && isEmpty(listNode)) {
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 function shouldShowSpinner(fsm, listNode) {
-  return fsm.state === 'fetching' && isEmpty(listNode);
+    return fsm.state === 'fetching' && isEmpty(listNode);
 }
 
 if (shouldShowSpinner(fsmInstance, listNodeInstance)) {
-  // ...
+    // ...
 }
 ```    
 **[建议]避免"否定情况"的判断**    
 反例：    
 ```javascript
 function isDOMNodeNotPresent(node) {
-	// …
+    // …
 }
 if (!isDOMNodeNotPresent(node)) {
-	// …
+    // …
 }
 ```
 正例：    
 ```javascript
-function isDOMNodePresent(node){
-	// …
+function isDOMNodePresent(node) {
+    // …
 }
 if (isDOMNodePresent(node)) {
-	// …
+    // …
 }
 ```    
 **[建议]避免过多的条件判断，许多情况下通过使用多态可以达到同样的目的，同时要保持函数功能的单一性**    
 反例：    
 ```javascript
 class Airplane {
-	// …
+    // …
 	getCruisingAltitude() {
-	  switch (this.type) {
-	    case ‘777’:
-		    return getMaxAltitude() – getPassengerCount();
-		    break;
-	    case ‘Air Force One’:
-		    return getMaxAltitude();
-		    break;
-	    case ‘Cessna’:
-		    return getMaxAltitude() – getFuelExpenditure();
-		    break;
+        switch (this.type) {
+            case ‘777’:
+                return getMaxAltitude() – getPassengerCount();
+                break;
+            case ‘Air Force One’:
+                return getMaxAltitude();
+                break;
+            case ‘Cessna’:
+                return getMaxAltitude() – getFuelExpenditure();
+                break;
+        }
     }
-  }
 }
 ```
 正例：    
 ```javascript
 class Airplane {
-	// …
+    // …
 }
 
 class Boeing777 extends Airplane {
-	// …
-	getCruisingAltitude() {
-		return getMaxAltitude() – getPassengerCount();
-  }
+    // …
+    getCruisingAltitude() {
+        return getMaxAltitude() – getPassengerCount();
+    }
 }
 
 class AirForceOne extends Airplane {
-	// …
-	getCruisingAltitude() {
-		return getMaxAltitude();
-  }
+    // …
+    getCruisingAltitude() {
+        return getMaxAltitude();
+    }
 }
 
 class Cessna extends Airplane {
-	// …
-	getCruisingAltitude() {
-		return getMaxAltitude() – getFuelExpenditure();
-  }
+    // …
+    getCruisingAltitude() {
+        return getMaxAltitude() – getFuelExpenditure();
+    }
 }
 ```    
 **[建议]避免过度优化，现在的浏览器在运行后会对代码进行自动优化**    
@@ -1361,24 +1361,24 @@ class Cessna extends Airplane {
 // 直接使用正解中的方式会导致每次循环均重复计算list.length的值，
 // 而在现代浏览器中会自动完成优化，这一行为是没有必要的
 for (var i = 0, len = list.length; i < len; i++) {
-  // ...
+    // ...
 }
 ```
 正例：    
 ```javascript
 for (var i = 0; i < list.length; i++) {
-  // ...
+    // ...
 }
 ```    
 **[强制]删除无效的代码，不再被调用的代码应及时删除**    
 反例：    
 ```javascript
 function oldRequestModule(url) {
-	// …
+    // …
 }
 
 function newRequestModule(url) {
-	// …
+    // …
 }
 
 var req = newReqestModule;
@@ -1387,7 +1387,7 @@ var req = newReqestModule;
 正例：    
 ```javascript
 function newRequestModule(url) {
-	// …
+    // …
 }
 
 var req = newReqestModule;
@@ -1396,51 +1396,51 @@ var req = newReqestModule;
 反例：    
 ```javascript
 function funcName() {
-	// …
+    // …
 };
 ```
 正例：    
 ```javascript
 function funcName() {
-	// …
+    // …
 }
 // 如果是函数表达式，分号是不允许省略的
 var funcName = function() {
-	// …
+    // …
 };
 ```    
 **[强制]IIFE（Immediately-Invoked Function Expression），额外的括号能够让代码在阅读的一开始就能判断函数是否立即被调用，进而明白接下来代码的用途。必须在函数表达式外添加括号，非IIFE不得在函数表达式外添加括号**    
 反例：    
 ```javascript
-var task = function() {
-	// …
-  return result;
+var task = function () {
+    // …
+    return result;
 }();
-var func = (function() {
-	// …
+var func = (function () {
+    // …
 });
 ```
 正例：    
 ```javascript
-var task = (function() {
-	// …
-  return result;
+var task = (function () {
+    // …
+    return result;
 })();
-var func = function() {
-	// …
+var func = function () {
+    // …
 };
 ```    
 **[强制]空函数不使用new Function()的形式**      
 示例：    
 ```javascript
-var emptyFunction = function() {};
+var emptyFunction = function () {};
 ```    
 **[建议]对于性能有高要求的场合，可以存在一个空函数的常量，供多出使用共享**    
 示例：    
 ```javascript
-var EMPTY_FUNCTION = function() {};
+var EMPTY_FUNCTION = function () {};
 function MyClass() {
-	// …
+    // …
 }
 MyClass.prototype.abstractMethod = EMPTY_FUNCTION;
 MyClass.prototype.hooks.before = EMPTY_FUNCTION;
@@ -1476,9 +1476,9 @@ array.length = 0;
 反例：    
 ```javascript
 class BankAccount {
-	constructor() {
-	this.balance = 1000;
-  }
+    constructor() {
+        this.balance = 1000;
+    }
 }
 
 var bankAccount = new BankAccount();
@@ -1488,14 +1488,14 @@ bankAccount.balance = bankAccount.balance – 100;
 正例：    
 ```javascript
 class BankAccount {
-	constructor() {
-		this.balance = 1000;
-  }
-  Withdraw(amount) {
-	  if (verifyAmountCanBeDeducted(amount)) {
-		  this.balance -= amount;
+    constructor() {
+        this.balance = 1000;
     }
-  }
+    Withdraw(amount) {
+        if (verifyAmountCanBeDeducted(amount)) {
+            this.balance -= amount;
+        }
+    }
 }
 
 var bankAccount = new BankAccount();
@@ -1505,12 +1505,12 @@ bankAccount.withdraw(100);
 **[建议]让成员拥有私有成员，可以通过闭包完成**    
 反例：    
 ```javascript
-var Employee = function(name) {
-	this.name = name;
+var Employee = function (name) {
+    this.name = name;
 }
 
-Employee.prototype.getName = function() {
-	return this.name;
+Employee.prototype.getName = function () {
+    return this.name;
 }
 
 var employee = new Employee('Manager Zhang');
@@ -1520,13 +1520,13 @@ console.log('Employee name: ' + employee.getName());  // Employee name: undefine
 ```
 正例：    
 ```javascript
-Var Employee = (function() {
-	function Employee(name) {
-		this.getName = function() {
-			return name;
-    };
-  }
-  return Employee;
+Var Employee = (function () {
+    function Employee(name) {
+        this.getName = function() {
+            return name;
+        };
+    }
+    return Employee;
 }());
 
 var employee = new Employee('Manager Zhang');
@@ -1538,21 +1538,21 @@ console.log('Employee name: ' + employee.getName());  // Employee name: Manager 
 示例：    
 ```javascript
 var info = {
-	name: 'Manager Zhang',
-	age: 28
+    name: 'Manager Zhang',
+    age: 28
 }
 
 var info = {
-	'name': 'Manager Zhang',
-	'age': 28
+    'name': 'Manager Zhang',
+    'age': 28
 }
 ```    
 **[强制]不允许修改和扩展任何原生对象和宿主对象的原型**      
 示例：    
 ```javascript
 // 以下行为绝对禁止
-String.prototype.trim = function() {
-	// …
+String.prototype.trim = function () {
+    // …
 };
 ```    
 **[建议]访问对象属性时，尽量使用'.'进行访问**  
@@ -1569,9 +1569,9 @@ info['more-info'];
 ```javascript
 var newInfo = {};
 for (var key in info) {
-	if (info.hasOwnProperty(key)) {
-		newInfo[key] = info[key];
-  }
+    if (info.hasOwnProperty(key)) {
+        newInfo[key] = info[key];
+    }
 }
 ```    
 
@@ -1663,44 +1663,44 @@ Math.ceil(num);
 反例：    
 ```javascript
 class UserSettings {
-	constructor(user) {
-		this.user = user;
-  }
-
-  changeSettings(settings) {
-	  if (this.verifyCredentials(user)) {
-		  // …
+    constructor(user) {
+        this.user = user;
     }
-  }
 
-  verifyCredentials(user) {
-	  // …
+    changeSettings(settings) {
+        if (this.verifyCredentials(user)) {
+            // …
+        }
+    }
+
+    verifyCredentials(user) {
+        // …
     }
 }
 ```
 正例：    
 ```javascript
 class UserAuth {
-	constructor(user) {
-		this.user = user;
-  }
+    constructor(user) {
+        this.user = user;
+    }
 
-  verifyCredentials() {
-	  // …
-  }
+    verifyCredentials() {
+        // …
+    }
 }
 
 class UserSettings {
-	constructor(user) {
-		this.user = user;
-		this.auth = new UserAuth(user);
-  }
-
-  changeSettings(settings) {
-	  if (this.auth.verifyCredentials()) {
-		  // …
+    constructor(user) {
+        this.user = user;
+        this.auth = new UserAuth(user);
     }
-  }
+
+    changeSettings(settings) {
+        if (this.auth.verifyCredentials()) {
+            // …
+        }
+    }
 }
 ```    
 
@@ -1710,28 +1710,28 @@ class UserSettings {
 反例：    
 ```javascript
 class AjaxRequester {
-	constructor() {
-	this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
-  }
+    constructor() {
+        this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
+    }
 
-  get(url) {
-	  // …
-  }
+    get(url) {
+        // …
+    }
 }
 ```
 正例：    
 ```javascript
 class AjaxRequester {
-	constructor() {
-		this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
-  }
+    constructor() {
+        this.HTTP_METHODS = [‘POST’, ‘PUT’, ‘GET’];
+    }
 
-  get(url) {
-	  // …
-  }
-  addHTTPMethod(method) {
-	  this.HTTP_METHODS.push(method);
-  }
+    get(url) {
+        // …
+    }
+    addHTTPMethod(method) {
+        this.HTTP_METHODS.push(method);
+    }
 }
 ```    
 
@@ -1745,58 +1745,58 @@ class AjaxRequester {
 反例：    
 ```javascript
 class DOMTraverser {
-	constructor(settings) {
-		this.settings = settings;
-		this.setup();
-  }
+    constructor(settings) {
+        this.settings = settings;
+        this.setup();
+    }
 
-  setup() {
-	  this.rootNode = this.settings.rootNode;
-	  this.animationModule.setup();
-  }
+    setup() {
+        this.rootNode = this.settings.rootNode;
+        this.animationModule.setup();
+    }
 
-  traverse() {
-	  // …
-  }
+    traverse() {
+        // …
+    }
 }
 
 var domTraverser({
-	rootNode: document.getElementByTagName(‘body’);
-	animationModule: function() {
-		// 大多数情况下不需要此方法
-  }
+    rootNode: document.getElementByTagName(‘body’);
+    animationModule: function () {
+        // 大多数情况下不需要此方法
+    }
 });
 ```
 正例：    
 ```javascript
 class DOMTraverser {
-	constructor(settings) {
-		this.settings = settings;
-		this.options = settings.options;
-		this.setup();
-  }
-
-  setup() {
-	  this.rootNode = this.settings.rootNode;
-    this.setupOptions();
-  }
-
-  setupOptions() {
-	  if (this.options.animationModule) {
-		  // …
+    constructor(settings) {
+        this.settings = settings;
+        this.options = settings.options;
+        this.setup();
     }
-  }
 
-  traverse() {
-	  // …
-  }
+    setup() {
+        this.rootNode = this.settings.rootNode;
+        this.setupOptions();
+    }
+
+    setupOptions() {
+        if (this.options.animationModule) {
+            // …
+        }
+    }
+
+    traverse() {
+        // …
+    }
 }
 
 var domTraverser({
-	rootNode: document.getElementByTagName(‘body’);
-	options: {
-		animationModule: function() {}
-  }
+    rootNode: document.getElementByTagName(‘body’);
+    options: {
+        animationModule: function() {}
+    }
 });
 ```    
 
@@ -1813,27 +1813,27 @@ var domTraverser({
 反例：    
 ```javascript
 class Car {
-	constructor() {
-		this.make = ‘Honda’;
-		this.model = ‘Accord’;
-		this.color = ‘white’;
-  }
+    constructor() {
+        this.make = ‘Honda’;
+        this.model = ‘Accord’;
+        this.color = ‘white’;
+    }
 
-  setMake(make) {
-	  this.name = name;
-  }
+    setMake(make) {
+        this.name = name;
+    }
 
-  setModel(model) {
-	  this.model = model;
-  }
+    setModel(model) {
+        this.model = model;
+    }
 
-  setColor(color) {
-	  this.color = color;
-  }
+    setColor(color) {
+        this.color = color;
+    }
 
-  save() {
-	  console.log(this.make, this.model, this.color);
-  }
+    save() {
+        console.log(this.make, this.model, this.color);
+    }
 }
 
 var car = new Car(0);
@@ -1845,30 +1845,30 @@ car.save();
 正例：    
 ```javascript
 class Car {
-	constructor() {
-		this.make = ‘Honda’;
-		this.model = ‘Accord’;
-		this.color = ‘white’;
-  }
+    constructor() {
+        this.make = ‘Honda’;
+        this.model = ‘Accord’;
+        this.color = ‘white’;
+    }
 
-  setMake(make) {
-	  this.name = name;
-	  return this;
-  }
+    setMake(make) {
+        this.name = name;
+        return this;
+    }
 
-  setModel(model) {
-	  this.model = model;
-	  return this;
-  }
+    setModel(model) {
+        this.model = model;
+        return this;
+    }
 
-  setColor(color) {
-	  this.color = color;
-	  return this;
-  }
+    setColor(color) {
+        this.color = color;
+        return this;
+    }
 
-  save() {
-	  console.log(this.make, this.model, this.color);
-  }
+    save() {
+        console.log(this.make, this.model, this.color);
+    }
 }
 var car = new Car().setColor(‘pink’).setMake(‘Ford’).setModel(‘F-150’).save();
 ```    
@@ -1880,47 +1880,47 @@ var car = new Car().setColor(‘pink’).setMake(‘Ford’).setModel(‘F-150�
 反例：    
 ```javascript
 class Employee {
-	constructor(name, email) {
-		this.name = name;
-		this.email = email;
-  }
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
 
-  // …
+    // …
 }
 // 在这种情况下不应该使用继承
 // 因为Employees拥有tax属性，并且EmployeeTaxData并不是Employee中的一种
 class EmployeeTaxData extends Employee {
-	constructor(ssn, salary) {
-		super();
-		this.ssn = ssn;
-		this.salary = salary;
-  }
+    constructor(ssn, salary) {
+        super();
+        this.ssn = ssn;
+        this.salary = salary;
+    }
 
-  // …
+    // …
 }
 ```
 正例：    
 ```javascript
 class Employee {
-	constructor(name, email) {
-		this.name = name;
-		this.email = email;
-  }
+    constructor(name, email) {
+        this.name = name;
+        this.email = email;
+    }
 
-  setTaxData(ssn, salary) {
-	  this.taxData = new EmployeeTaxData(ssn, salary);
-  }
+    setTaxData(ssn, salary) {
+        this.taxData = new EmployeeTaxData(ssn, salary);
+    }
 
-  // …
+    // …
 }
 
 class EmployeeTaxData {
-	constructor(ssn, salary) {
-		this.ssn = ssn;
-		this.salary = salary;
-  }
+    constructor(ssn, salary) {
+        this.ssn = ssn;
+        this.salary = salary;
+    }
 
-  // …
+    // …
 }
 ```    
 
@@ -1931,22 +1931,22 @@ class EmployeeTaxData {
 反例：    
 ```javascript
 try {
-  functionThatMightThrow();
+    functionThatMightThrow();
 } catch (error) {
-  console.log(error);
+    console.log(error);
 }
 ```
 正例：    
 ```javascript
 try {
-  functionThatMightThrow();
+    functionThatMightThrow();
 } catch (error) {
-  // 方案1
-  console.log(error);
-  // 方案2
-  notifyUserOfError(error);
-  // 方案3
-  reportErrorToService(error);
+    // 方案1
+    console.log(error);
+    // 方案2
+    notifyUserOfError(error);
+    // 方案3
+    reportErrorToService(error);
 }
 ```    
 
@@ -1982,7 +1982,7 @@ var element = ''; // 注释内容
 
 // 这里是一个循环
 for (var i = 0, j < length; i < j; i++) {
-  // ...
+    // ...
 }
 ```  
 **[强制]注释避免位置标记，采用适当的缩进即可**    
@@ -1992,26 +1992,26 @@ for (var i = 0, j < length; i < j; i++) {
 // Scope Model Instantiation
 ///////////////////////////////////////////////
 var model = {
-	menu: ‘foo’,
-	nav: ‘bar’
+    menu: ‘foo’,
+    nav: ‘bar’
 };
 ////////////////////////////////////////////////
 // Action setup
 ///////////////////////////////////////////////
-var actions = function() {
-	// …
+var actions = function () {
+    // …
 }
 ```  
 正例：  
 ```javascript
 // Scope Model Instantiation
 var model = {
-	menu: ‘foo’,
-	nav: ‘bar’
+    menu: ‘foo’,
+    nav: ‘bar’
 };
 // Action setup
-var actions = function() {
-	// …
+var actions = function () {
+    // …
 }
 ```  
 **[强制]避免在源文件中写入法律评论，将法律评论写入LICENSE文件中，再将LICENSE文件置于源代码目录树的根目录**    
@@ -2019,11 +2019,11 @@ var actions = function() {
 示例：  
 ```javascript
 function foo(p1, p2, p3) {
-	// 这里对具体内部逻辑进行说明
-	// 说明太长需要换行
-	for (…) {
-		// …
-  }
+    // 这里对具体内部逻辑进行说明
+    // 说明太长需要换行
+    for (…) {
+        // …
+    }
 }
 ```  
 **[建议]使用TODO表示有功能待实现，此时需要对将要实现的功能进行简单说明**    
@@ -2060,12 +2060,12 @@ function foo(p1, p2, p3) {
 将"use strict"放在函数体的第一行，则整个函数以"严格模式"运行  
 示例：  
 ```javascript
-function strict(){
-  "use strict";
-  return "这是严格模式。";
+function strict() {
+    'use strict';
+    return '这是严格模式。';
 }
 function notStrict() {
-  return "这是正常模式。";
+    return '这是正常模式。';
 }
 ```  
 
